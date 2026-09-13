@@ -1,0 +1,94 @@
+{
+  "_note": "Lab-member resources. Each group renders as a column. Set `url` on each link; a link with url \"#\" renders as unlinked placeholder text. Access control lives in Google Drive and Calendar sharing, not on this page.",
+  "groups": [
+    {
+      "title": "Purchasing",
+      "blurb": "How to request parts, and what to do before you order.",
+      "links": [
+        {
+          "label": "Purchase request form",
+          "url": "#",
+          "note": "Submit before ordering"
+        },
+        {
+          "label": "Approved vendor list",
+          "url": "#",
+          "note": ""
+        },
+        {
+          "label": "Reimbursement process",
+          "url": "#",
+          "note": "Keep receipts"
+        }
+      ]
+    },
+    {
+      "title": "Equipment",
+      "blurb": "Instructions and training for the machines in the lab.",
+      "links": [
+        {
+          "label": "3D printers",
+          "url": "#",
+          "note": "Training required"
+        },
+        {
+          "label": "Laser cutter",
+          "url": "#",
+          "note": "Training required"
+        },
+        {
+          "label": "Motion capture",
+          "url": "#",
+          "note": ""
+        },
+        {
+          "label": "Test rigs and fixtures",
+          "url": "#",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "title": "Safety",
+      "blurb": "Read these before your first day on the floor.",
+      "links": [
+        {
+          "label": "Lab safety manual",
+          "url": "#",
+          "note": "Required reading"
+        },
+        {
+          "label": "EHS training portal",
+          "url": "https://www.ehs.ncsu.edu/",
+          "note": "NC State EHS"
+        },
+        {
+          "label": "Incident reporting",
+          "url": "#",
+          "note": ""
+        },
+        {
+          "label": "Emergency contacts",
+          "url": "#",
+          "note": ""
+        }
+      ]
+    },
+    {
+      "title": "Meet with me",
+      "blurb": "Office hours and one-on-one slots.",
+      "links": [
+        {
+          "label": "Book a meeting",
+          "url": "#",
+          "note": "Dr. Chen's calendar"
+        },
+        {
+          "label": "Group meeting notes",
+          "url": "#",
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

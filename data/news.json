@@ -1,0 +1,29 @@
+{
+  "_note": "News items, newest first. date: ISO yyyy-mm-dd. tag: short label (Department, Teaching, Lab, Paper, Award, Talk). link + source are optional; a link makes the headline clickable.",
+  "news": [
+    {
+      "date": "2026-09-01",
+      "tag": "Department",
+      "title": "ECE welcomes new faculty members",
+      "body": "NC State ECE introduced its two new assistant professors for the 2026-27 academic year, Brittany N. Smith and Wei-Hsi Chen. The piece covers the FORGE Lab's aim to turn robot design from an artisanal process into an engineering discipline driven by first principles and algorithms.",
+      "source": "NC State ECE",
+      "link": "https://ece.ncsu.edu/2026/ece-welcomes-new-faculty-members/"
+    },
+    {
+      "date": "2026-08-15",
+      "tag": "Lab",
+      "title": "FORGE Lab starts at NC State",
+      "body": "The lab opens in Research Building IV on Centennial Campus and begins recruiting PhD students.",
+      "source": "",
+      "link": ""
+    },
+    {
+      "date": "2026-08-15",
+      "tag": "Teaching",
+      "title": "Dr. Chen is teaching ECE 455/555, Industrial Robotics Systems",
+      "body": "Offered in the fall semester through the Department of Electrical and Computer Engineering.",
+      "source": "",
+      "link": ""
+    }
+  ]
+}

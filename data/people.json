@@ -1,0 +1,69 @@
+{
+  "_note": "Roster for the People page. Later this file can be generated from a Google Sheet with matching column names: group, name, role, dept, focus, email, tags. `group` sorts the grid and must be one of: phd, ms, undergrad, visitor. `role` is the free-text label shown on the card — e.g. 'PhD Student', \"Master's Student\", 'Undergraduate Researcher'. tags take {label, href} pointing at the Research page.",
+  "people": [
+    {
+      "group": "phd",
+      "name": "Student One",
+      "role": "PhD Student",
+      "dept": "Electrical & Computer Engineering · expected 2031",
+      "focus": "Placeholder profile — one line on what the student works on.",
+      "email": "",
+      "tags": [
+        {
+          "label": "Programmable compliance",
+          "href": "Research.dc.html?theme=realize"
+        },
+        {
+          "label": "Kinegami",
+          "href": "Research.dc.html?theme=represent"
+        }
+      ]
+    },
+    {
+      "group": "phd",
+      "name": "Student Two",
+      "role": "PhD Student",
+      "dept": "Mechanical & Aerospace Engineering · expected 2030",
+      "focus": "Placeholder profile — one line on what the student works on.",
+      "email": "",
+      "tags": [
+        {
+          "label": "Monkey-bar quadruped",
+          "href": "Research.dc.html?theme=react"
+        }
+      ]
+    },
+    {
+      "group": "ms",
+      "name": "Student Three",
+      "role": "Master's Student",
+      "dept": "Electrical & Computer Engineering · expected 2028",
+      "focus": "Placeholder profile — one line on what the student works on.",
+      "email": "",
+      "tags": [
+        {
+          "label": "Scaling across sizes",
+          "href": "Research.dc.html?theme=reason"
+        },
+        {
+          "label": "Kinegami",
+          "href": "Research.dc.html?theme=represent"
+        }
+      ]
+    },
+    {
+      "group": "undergrad",
+      "name": "Student Four",
+      "role": "Undergraduate Researcher",
+      "dept": "Electrical & Computer Engineering · expected 2029",
+      "focus": "Placeholder profile — one line on what the student works on.",
+      "email": "",
+      "tags": [
+        {
+          "label": "Programmable compliance",
+          "href": "Research.dc.html?theme=realize"
+        }
+      ]
+    }
+  ]
+}

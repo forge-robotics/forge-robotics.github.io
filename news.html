@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News — FORGE Lab</title>
+<meta name="description" content="FORGE Lab at NC State University studies how a robot's form shapes what it can do.">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-51cb6bb2-d4e1-4e2c-a8d1-fc405a1cb599/styles.css">
+<script src="_ds/modernist-51cb6bb2-d4e1-4e2c-a8d1-fc405a1cb599/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; }
+  * { box-sizing:border-box; }
+  body { -webkit-font-smoothing:antialiased; }
+  a { color:var(--color-accent-700); }
+  a:hover { color:var(--color-accent); }
+  .btn-primary { background: #c94b39; color: var(--color-bg); }
+  .btn-primary:hover, .btn-primary:active { background: #c94b39; color: var(--color-text); }
+  .grayscale { transition: filter 0.35s ease; }
+  .grayscale:hover { filter: none; }
+</style>
+</helmet>
+
+<div style="background:var(--color-bg); color:var(--color-text); min-height:100vh; font-family:var(--font-body); max-width:1560px; margin:0 auto; padding:0 clamp(var(--space-4), 5.5vw, 96px)">
+
+  <header class="nav" style="justify-content:space-between; gap:var(--space-8); flex-wrap:wrap; padding:var(--space-4) 0; border-bottom:2px solid var(--color-text); background:var(--color-bg); position:sticky; top:0; z-index:20">
+    <a href="index.html" class="nav-brand" style="display:flex; align-items:center; text-decoration:none; flex:0 0 auto">
+      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:30px; width:auto; mix-blend-mode:multiply; display:block">
+    </a>
+    <nav style="display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center">
+      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">People</a>
+      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Research</a>
+      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Publications</a>
+      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid var(--color-accent)">News</a>
+      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Join Us</a>
+      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">For Lab Members</a>
+    </nav>
+  </header>
+
+  <section style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 56px) 0 clamp(24px, 3vw, 40px)">
+    <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(44px, 8vw, 112px); line-height:0.92; letter-spacing:-0.035em; margin:0 0 24px">News</h1>
+    <p style="font-size:clamp(18px, 1.9vw, 24px); line-height:1.4; margin:0; max-width:52ch; color:var(--color-neutral-800); text-wrap:pretty">{{ countLabel }}</p>
+  </section>
+
+  <section style="margin-top:clamp(20px, 2.4vw, 32px)">
+    <sc-for list="{{ items }}" as="item" hint-placeholder-count="3">
+      <article style="display:grid; grid-template-columns:repeat(auto-fit, minmax(min(300px, 100%), 1fr)); column-gap:clamp(24px, 3vw, 56px); row-gap:20px; align-items:start; padding:clamp(28px, 3.4vw, 44px) 0; border-top:1px solid var(--color-neutral-300)">
+        <div style="display:flex; flex-direction:column; gap:12px; min-width:0">
+          <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:baseline">
+            <div style="font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-neutral-700)">{{ item.dateLabel }}</div>
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; background:var(--color-accent-200); color:var(--color-accent-700)">{{ item.tag }}</div>
+          </div>
+          <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 3vw, 40px); line-height:1.02; letter-spacing:-0.025em; margin:0; text-wrap:pretty">
+            <sc-if value="{{ item.hasLink }}" hint-placeholder-val="{{ false }}"><a href="{{ item.link }}" style="color:var(--color-text); text-decoration:none; border-bottom:3px solid var(--color-accent)" style-hover="color:var(--color-accent-700)">{{ item.title }}</a></sc-if>
+            <sc-if value="{{ item.noLink }}" hint-placeholder-val="{{ true }}"><span>{{ item.title }}</span></sc-if>
+          </h2>
+          <p style="font-size:clamp(16px, 1.6vw, 19px); line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">{{ item.body }}</p>
+          <sc-if value="{{ item.hasLink }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ item.link }}" style="align-self:flex-start; margin-top:4px; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">{{ item.readLabel }}</a>
+          </sc-if>
+        </div>
+        <div class="grayscale" style="position:relative; width:100%; aspect-ratio:16 / 10; background:var(--color-neutral-300)">
+          <image-slot id="{{ item.slotId }}" shape="rect" fit="cover" placeholder="Drop an image"></image-slot>
+        </div>
+      </article>
+    </sc-for>
+  </section>
+
+  <footer style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 48px) clamp(20px, 2.4vw, 32px); background:var(--color-surface); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap:clamp(24px, 3vw, 48px)">
+    <div style="grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:var(--space-6)">
+      <div>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px, 3.4vw, 44px); line-height:1; letter-spacing:-0.025em; margin:0 0 12px">Find us</h2>
+        <p style="font-size:17px; line-height:1.5; margin:0; max-width:52ch; color:var(--color-neutral-800); text-wrap:pretty">The lab is in Research Building IV on Centennial Campus. Visitors are welcome by appointment.</p>
+      </div>
+      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:28px; width:auto; mix-blend-mode:multiply; display:block">
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Address</div>
+      <div style="font-size:16px; line-height:1.55">Room 1410, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
+      <a href="https://maps.google.com/?q=909+Capability+Dr,+Raleigh,+NC+27606" style="font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent); align-self:flex-start; margin-top:4px" style-hover="color:var(--color-accent)">Open in Maps →</a>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
+      <a href="mailto:wchen55@ncsu.edu" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">wchen55@ncsu.edu</a>
+      <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Press and collaboration enquiries to the same address.</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Department</div>
+      <a href="https://www.ece.ncsu.edu/" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">NC State ECE</a>
+      <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Electrical &amp; Computer Engineering, North Carolina State University.</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:1000}}">
+const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+class Component extends DCLogic {
+  state = { news: [] };
+
+  componentDidMount() {
+    fetch('data/news.json')
+      .then(r => r.ok ? r.json() : { news: [] })
+      .then(d => this.setState({ news: Array.isArray(d.news) ? d.news : [] }))
+      .catch(() => {});
+  }
+
+  renderVals() {
+    const items = this.state.news.slice()
+      .sort((a, b) => String(b.date).localeCompare(String(a.date)))
+      .map(n => {
+        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(n.date || ''));
+        const dateLabel = m
+          ? MONTHS[parseInt(m[2], 10) - 1] + ' ' + parseInt(m[3], 10) + ', ' + m[1]
+          : (n.date || '');
+        return {
+          dateLabel,
+          tag: n.tag || 'News',
+          title: n.title,
+          body: n.body || '',
+          link: n.link || '',
+          hasLink: !!n.link,
+          noLink: !n.link,
+          readLabel: n.source ? 'Read on ' + n.source + ' →' : 'Read more →',
+          slotId: 'news-' + String(n.date || '') + '-' + String(n.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40)
+        };
+      });
+    return {
+      items,
+      countLabel: items.length
+        ? 'What the lab has been doing, newest first.'
+        : 'Nothing posted yet.'
+    };
+  }
+}
+</script>
+</body>
+</html>

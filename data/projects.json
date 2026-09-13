@@ -1,0 +1,164 @@
+{
+  "_note": "Seeded from Dr. Chen's CV — edit freely. themes: represent | realize | react | reason. topics are free-form; the Research page builds its topic filter from whatever appears here. Each project may carry a `parts` list of sub-projects: {label, venue, year, link}. Set \"era\": \"earlier\" on work that predates the lab — those cards are hidden until the Earlier work filter is clicked.",
+  "projects": [
+    {
+      "title": "Kinegami",
+      "subtitle": "Compiling kinematic chains into tubular origami",
+      "blurb": "A design pipeline that takes a desired kinematic chain and produces a foldable tubular origami pattern, so a specified motion can be built directly as a physical mechanism.",
+      "themes": [
+        "represent",
+        "realize"
+      ],
+      "topics": [
+        "Origami",
+        "Design automation",
+        "Kinematics"
+      ],
+      "venue": "",
+      "year": "2022–2024",
+      "link": "",
+      "parts": [
+        {
+          "label": "Algorithmic design of compliant kinematic chains from tubular origami",
+          "venue": "IEEE Transactions on Robotics",
+          "year": "2022",
+          "link": ""
+        },
+        {
+          "label": "Kinematic trees from CSC Dubins planning for link shapes",
+          "venue": "WAFR",
+          "year": "2024",
+          "link": ""
+        },
+        {
+          "label": "Open-source software for creating chains from tubular origami",
+          "venue": "8OSME",
+          "year": "2024",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "title": "Programmable compliance",
+      "subtitle": "Origami mechanisms and tunable-stiffness actuation",
+      "blurb": "Joints and actuators whose stiffness is set by geometry rather than control, letting a robot store and release energy during dynamic motion and stay efficient as the ground changes.",
+      "themes": [
+        "realize",
+        "react"
+      ],
+      "topics": [
+        "Origami",
+        "Compliance",
+        "Actuation",
+        "Hopping"
+      ],
+      "venue": "",
+      "year": "2020–2025",
+      "link": "",
+      "parts": [
+        {
+          "label": "A programmably compliant origami mechanism for dynamically dexterous robots",
+          "venue": "IEEE RA-L",
+          "year": "2020",
+          "link": ""
+        },
+        {
+          "label": "Pneumatic tunable-stiffness bellows actuator",
+          "venue": "RoboSoft",
+          "year": "2024",
+          "link": ""
+        },
+        {
+          "label": "Tunable stiffness for energy-efficient vertical hopping across ground profiles",
+          "venue": "ICRA",
+          "year": "2025",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "title": "Leg-wheel transformable robots",
+      "subtitle": "Machines that change how they move",
+      "blurb": "Robots that shift between wheeled and legged locomotion while moving, so one machine can match its gait to the terrain it meets. Done during the PI’s master’s work at National Taiwan University; these robots set the questions the lab now asks.",
+      "themes": [
+        "react",
+        "reason"
+      ],
+      "topics": [
+        "Legged",
+        "Wheeled",
+        "Locomotion"
+      ],
+      "venue": "",
+      "year": "2014–2017",
+      "link": "",
+      "parts": [
+        {
+          "label": "TurboQuad: smooth and fast behavioral transitions",
+          "venue": "IEEE Transactions on Robotics",
+          "year": "2017",
+          "link": ""
+        },
+        {
+          "label": "Quattroped: a leg-wheel transformable robot",
+          "venue": "IEEE/ASME T-Mech",
+          "year": "2014",
+          "link": ""
+        }
+      ],
+      "era": "earlier"
+    },
+    {
+      "title": "Monkey-bar terrain quadruped",
+      "subtitle": "Codesigning the gripper and the controller",
+      "blurb": "Gripper and controller designed together for a quadruped crossing monkey-bar terrain, where what the hand can hold decides what the controller can attempt.",
+      "themes": [
+        "realize",
+        "react"
+      ],
+      "topics": [
+        "Legged",
+        "Codesign",
+        "Grasping"
+      ],
+      "venue": "In preparation",
+      "year": "",
+      "link": "",
+      "parts": []
+    },
+    {
+      "title": "When is a body worth designing?",
+      "subtitle": "Task-to-intelligence mapping",
+      "blurb": "Asks when capability belongs in a robot's body rather than its controller, and what a task has to look like for that trade to pay off.",
+      "themes": [
+        "reason"
+      ],
+      "topics": [
+        "Embodied intelligence",
+        "Theory"
+      ],
+      "venue": "IOP Conference Series",
+      "year": "2023",
+      "link": "",
+      "parts": []
+    },
+    {
+      "title": "Scaling across sizes",
+      "subtitle": "Scaling robots for dynamically similar tasks",
+      "blurb": "What has to change when the same behavior is demanded of a larger or smaller machine, and which parts of a design survive the change of scale.",
+      "themes": [
+        "reason",
+        "represent"
+      ],
+      "topics": [
+        "Scaling",
+        "Theory",
+        "Locomotion"
+      ],
+      "venue": "In preparation",
+      "year": "",
+      "link": "",
+      "parts": []
+    }
+  ]
+}

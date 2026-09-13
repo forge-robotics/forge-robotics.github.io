@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research — FORGE Lab</title>
+<meta name="description" content="FORGE Lab at NC State University studies how a robot's form shapes what it can do.">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-51cb6bb2-d4e1-4e2c-a8d1-fc405a1cb599/styles.css">
+<script src="_ds/modernist-51cb6bb2-d4e1-4e2c-a8d1-fc405a1cb599/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&amp;display=swap">
+<script src="./image-slot.js"></script>
+<style>
+  html, body { margin:0; padding:0; }
+  * { box-sizing:border-box; }
+  body { -webkit-font-smoothing:antialiased; }
+  a { color:var(--color-accent-700); }
+  a:hover { color:var(--color-accent); }
+  .btn-primary { background: #c94b39; color: var(--color-bg); }
+  .btn-primary:hover, .btn-primary:active { background: #c94b39; color: var(--color-text); }
+  .grayscale { transition: filter 0.35s ease; }
+  .grayscale:hover { filter: none; }
+</style>
+</helmet>
+
+<div style="background:var(--color-bg); color:var(--color-text); min-height:100vh; font-family:var(--font-body); max-width:1560px; margin:0 auto; padding:0 clamp(var(--space-4), 5.5vw, 96px)">
+
+  <header class="nav" style="justify-content:space-between; gap:var(--space-8); flex-wrap:wrap; padding:var(--space-4) 0; border-bottom:2px solid var(--color-text); background:var(--color-bg); position:sticky; top:0; z-index:20">
+    <a href="index.html" class="nav-brand" style="display:flex; align-items:center; text-decoration:none; flex:0 0 auto">
+      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:30px; width:auto; mix-blend-mode:multiply; display:block">
+    </a>
+    <nav style="display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center">
+      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">People</a>
+      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid var(--color-accent)">Research</a>
+      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Publications</a>
+      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">News</a>
+      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Join Us</a>
+      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">For Lab Members</a>
+    </nav>
+  </header>
+
+  <section style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 56px) 0 clamp(24px, 3vw, 40px)">
+    <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(44px, 8vw, 112px); line-height:0.92; letter-spacing:-0.035em; margin:0 0 24px">Research</h1>
+    <p style="font-size:clamp(18px, 1.9vw, 24px); line-height:1.4; margin:0; max-width:52ch; color:var(--color-neutral-800); text-wrap:pretty">Four themes run through the lab's work: how a robot is described, how it is built, how it meets the world, and why it works. Filter by theme or topic.</p>
+  </section>
+
+  <section style="margin-top:clamp(20px, 2.4vw, 36px); padding:clamp(24px, 3vw, 36px) clamp(20px, 2.4vw, 32px); background:var(--color-surface); display:flex; flex-direction:column; gap:clamp(20px, 2.4vw, 28px)">
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-4) clamp(20px, 3vw, 40px); align-items:baseline">
+      <div style="flex:0 0 96px; font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Themes</div>
+      <div style="flex:1 1 420px; display:flex; flex-wrap:wrap; gap:10px">
+        <sc-for list="{{ themeChips }}" as="chip" hint-placeholder-count="4">
+          <button type="button" onClick="{{ chip.toggle }}" style="{{ chip.style }}" style-hover="border-color:var(--color-accent); color:var(--color-accent-700)">{{ chip.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-4) clamp(20px, 3vw, 40px); align-items:baseline">
+      <div style="flex:0 0 96px; font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Topics</div>
+      <div style="flex:1 1 420px; display:flex; flex-wrap:wrap; gap:10px">
+        <sc-for list="{{ topicChips }}" as="chip" hint-placeholder-count="8">
+          <button type="button" onClick="{{ chip.toggle }}" style="{{ chip.style }}" style-hover="border-color:var(--color-accent); color:var(--color-accent-700)">{{ chip.label }}</button>
+        </sc-for>
+      </div>
+    </div>
+    <sc-if value="{{ hasEarlier }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex; flex-wrap:wrap; gap:var(--space-4) clamp(20px, 3vw, 40px); align-items:baseline">
+        <div style="flex:0 0 96px; font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Archive</div>
+        <div style="flex:1 1 420px; display:flex; flex-wrap:wrap; gap:10px; align-items:center">
+          <button type="button" onClick="{{ earlierChip.toggle }}" style="{{ earlierChip.style }}" style-hover="border-color:var(--color-accent); color:var(--color-accent-700)">{{ earlierChip.label }}</button>
+          <span style="font-size:14px; line-height:1.4; color:var(--color-neutral-700)">Work that predates the lab, and the questions it raised.</span>
+        </div>
+      </div>
+    </sc-if>
+    <div style="display:flex; flex-wrap:wrap; gap:var(--space-4); align-items:baseline; justify-content:space-between">
+      <div style="font-size:14px; font-weight:600; color:var(--color-neutral-800)">{{ countLabel }}</div>
+      <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
+        <button type="button" onClick="{{ clearAll }}" style="background:none; border:0; padding:0; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); cursor:pointer; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">Clear filters</button>
+      </sc-if>
+    </div>
+  </section>
+
+  <sc-if value="{{ hasThemeNotes }}" hint-placeholder-val="{{ false }}">
+    <section style="margin-top:clamp(24px, 3vw, 40px); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(420px, 100%), 1fr)); column-gap:clamp(24px, 3vw, 56px); row-gap:clamp(24px, 3vw, 40px)">
+      <sc-for list="{{ themeNotes }}" as="note" hint-placeholder-count="1">
+        <div style="display:flex; flex-direction:column; gap:14px; min-width:0; padding-left:20px; border-left:3px solid var(--color-accent)">
+          <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.6vw, 36px); line-height:1; letter-spacing:-0.02em">{{ note.label }}</div>
+          <p style="font-size:clamp(17px, 1.7vw, 21px); font-weight:600; line-height:1.35; margin:0; text-wrap:pretty">{{ note.desc }}</p>
+          <p style="font-size:16px; line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">{{ note.body }}</p>
+        </div>
+      </sc-for>
+    </section>
+  </sc-if>
+
+  <section style="margin-top:clamp(28px, 4vw, 56px); display:grid; grid-template-columns:repeat(auto-fill, minmax(min(340px, 100%), 1fr)); column-gap:clamp(24px, 3vw, 48px); row-gap:clamp(32px, 4vw, 56px)">
+    <sc-for list="{{ visible }}" as="p" hint-placeholder-count="6">
+      <article style="display:flex; flex-direction:column; gap:14px; min-width:0; padding:clamp(24px, 2.4vw, 32px); background:var(--color-surface)">
+        <div class="grayscale" style="position:relative; width:100%; aspect-ratio:16 / 10; background:var(--color-neutral-300); margin-bottom:6px">
+          <image-slot id="{{ p.slotId }}" shape="rect" fit="cover" placeholder="Drop a project image"></image-slot>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline">
+          <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-accent-700)">{{ p.themeLabel }}</div>
+          <sc-if value="{{ p.isEarlier }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; background:var(--color-neutral-300); color:var(--color-neutral-800)">Earlier work</div>
+          </sc-if>
+        </div>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.6vw, 36px); line-height:1.02; letter-spacing:-0.025em; margin:0">{{ p.title }}</h2>
+        <div style="font-size:17px; font-weight:600; line-height:1.35; color:var(--color-text)">{{ p.subtitle }}</div>
+        <p style="font-size:16px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">{{ p.blurb }}</p>
+        <sc-if value="{{ p.hasParts }}" hint-placeholder-val="{{ false }}">
+          <ul style="list-style:none; margin:4px 0 0; padding:0; display:flex; flex-direction:column">
+            <sc-for list="{{ p.parts }}" as="part" hint-placeholder-count="2">
+              <li style="display:flex; flex-direction:column; gap:3px; padding:12px 0; border-top:1px solid var(--color-neutral-300)">
+                <div style="font-size:15px; line-height:1.4; text-wrap:pretty">{{ part.label }}</div>
+                <div style="font-size:12px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--color-neutral-700)">{{ part.meta }}</div>
+              </li>
+            </sc-for>
+          </ul>
+        </sc-if>
+        <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:2px">
+          <sc-for list="{{ p.topics }}" as="topic" hint-placeholder-count="2">
+            <span style="font-size:12px; font-weight:600; letter-spacing:0.04em; padding:5px 10px; background:var(--color-accent-200); color:var(--color-accent-700)">{{ topic }}</span>
+          </sc-for>
+        </div>
+        <div style="font-size:13px; font-weight:600; letter-spacing:0.04em; color:var(--color-neutral-700)">{{ p.meta }}</div>
+      </article>
+    </sc-for>
+  </section>
+
+  <sc-if value="{{ noResults }}" hint-placeholder-val="{{ false }}">
+    <section style="margin-top:clamp(28px, 4vw, 56px); padding:clamp(32px, 4vw, 56px) clamp(20px, 2.4vw, 32px); background:var(--color-surface)">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700); margin-bottom:14px">No matches</div>
+      <p style="font-size:19px; line-height:1.45; margin:0; max-width:40ch; text-wrap:pretty">Nothing fits that combination of filters yet. Clear one and try again.</p>
+    </section>
+  </sc-if>
+
+  <footer style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 48px) clamp(20px, 2.4vw, 32px); background:var(--color-surface); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap:clamp(24px, 3vw, 48px)">
+    <div style="grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:var(--space-6)">
+      <div>
+        <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px, 3.4vw, 44px); line-height:1; letter-spacing:-0.025em; margin:0 0 12px">Find us</h2>
+        <p style="font-size:17px; line-height:1.5; margin:0; max-width:52ch; color:var(--color-neutral-800); text-wrap:pretty">The lab is in Research Building IV on Centennial Campus. Visitors are welcome by appointment.</p>
+      </div>
+      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:28px; width:auto; mix-blend-mode:multiply; display:block">
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Address</div>
+      <div style="font-size:16px; line-height:1.55">Room 1410, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
+      <a href="https://maps.google.com/?q=909+Capability+Dr,+Raleigh,+NC+27606" style="font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent); align-self:flex-start; margin-top:4px" style-hover="color:var(--color-accent)">Open in Maps →</a>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
+      <a href="mailto:wchen55@ncsu.edu" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">wchen55@ncsu.edu</a>
+      <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Press and collaboration enquiries to the same address.</div>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:10px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Department</div>
+      <a href="https://www.ece.ncsu.edu/" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">NC State ECE</a>
+      <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Electrical &amp; Computer Engineering, North Carolina State University.</div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:1000}}">
+const THEMES = [
+  ['represent', 'Represent', 'How do we describe a robot so that its form can be systematically connected to its function?', 'We develop modular and parameterized representations of robot morphology, materials, mechanisms, and control. These representations allow us to systematically explore how changes in a robot’s design affect its capabilities and performance, providing a common language for connecting task, form, and function.'],
+  ['realize', 'Realize', 'How do we turn a robot design into a physical system we can learn from?', 'We design, fabricate, and experiment with physical robots to test hypotheses about how morphology influences capability. Building is not simply the final step of our research—it is part of the scientific process. Physical realization reveals behaviors, constraints, and opportunities that models may overlook, generating new insights and motivating new hypotheses.'],
+  ['react', 'React', 'How does a robot\'s embodiment shape the way it interacts with the world?', 'Robots do not operate in isolation. We study how morphology, mechanics, sensing, and control shape a robot’s interaction with its environment. From dynamic locomotion and contact to adaptation across changing terrain and tasks, we investigate how robots can exploit both their bodies and their surroundings to achieve robust and responsive behavior.'],
+  ['reason', 'Reason', 'Why does a robot work, and can we explain what makes it capable?', 'We seek mechanistic and interpretable explanations for the behaviors we design and observe. Through modeling, analysis, simulation, and experiments, we investigate how geometry, materials, actuation, control, and the environment combine to produce robot capabilities. Our goal is not only to make robots that work, but to understand why they work and when those principles generalize.']
+];
+
+const CHIP_BASE = 'font-family:inherit; font-size:14px; font-weight:600; letter-spacing:0.02em; padding:9px 16px; border-radius:0; cursor:pointer; ';
+const CHIP_OFF = CHIP_BASE + 'background:var(--color-bg); border:2px solid var(--color-neutral-300); color:var(--color-text)';
+const CHIP_ON = CHIP_BASE + 'background:var(--color-accent-700); border:2px solid var(--color-accent-700); color:var(--color-bg)';
+
+class Component extends DCLogic {
+  state = { projects: [], themes: [], topics: [], showEarlier: false };
+
+  componentDidMount() {
+    let preset = [];
+    try {
+      const t = new URLSearchParams(window.location.search).get('theme');
+      if (t && THEMES.some(([k]) => k === t)) preset = [t];
+    } catch (e) {}
+    fetch('data/projects.json')
+      .then(r => r.ok ? r.json() : { projects: [] })
+      .then(d => this.setState({
+        projects: Array.isArray(d.projects) ? d.projects : [],
+        themes: preset
+      }))
+      .catch(() => {});
+  }
+
+  toggle(key, value) {
+    this.setState(s => {
+      const list = s[key];
+      return { [key]: list.indexOf(value) < 0 ? list.concat([value]) : list.filter(v => v !== value) };
+    });
+  }
+
+  renderVals() {
+    const { projects, themes, topics, showEarlier } = this.state;
+    const themeName = k => (THEMES.find(([key]) => key === k) || [k, k])[1];
+    const isEarlier = p => String(p.era || '').toLowerCase() === 'earlier';
+
+    const inScope = projects.filter(p => showEarlier || !isEarlier(p));
+    const visible = inScope.filter(p => {
+      const pt = (p.themes || []).map(t => String(t).toLowerCase());
+      const ptop = p.topics || [];
+      return (!themes.length || themes.some(t => pt.indexOf(t) >= 0))
+        && (!topics.length || topics.some(t => ptop.indexOf(t) >= 0));
+    }).map(p => ({
+      isEarlier: isEarlier(p),
+      title: p.title,
+      subtitle: p.subtitle,
+      blurb: p.blurb,
+      topics: p.topics || [],
+      slotId: 'proj-' + String(p.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+      themeLabel: (p.themes || []).map(themeName).join(' · '),
+      meta: [p.venue, p.year].filter(Boolean).join(', '),
+      parts: (p.parts || []).map(part => ({
+        label: part.label,
+        meta: [part.venue, part.year].filter(Boolean).join(' · ')
+      })),
+      hasParts: (p.parts || []).length > 0
+    }));
+
+    const allTopics = [];
+    inScope.forEach(p => (p.topics || []).forEach(t => { if (allTopics.indexOf(t) < 0) allTopics.push(t); }));
+    allTopics.sort();
+    const liveTopics = topics.filter(t => allTopics.indexOf(t) >= 0);
+    if (liveTopics.length !== topics.length) setTimeout(() => this.setState({ topics: liveTopics }), 0);
+
+    const themeChips = THEMES.map(([key, label]) => ({
+      label,
+      style: themes.indexOf(key) >= 0 ? CHIP_ON : CHIP_OFF,
+      toggle: () => this.toggle('themes', key)
+    }));
+    const topicChips = allTopics.map(t => ({
+      label: t,
+      style: topics.indexOf(t) >= 0 ? CHIP_ON : CHIP_OFF,
+      toggle: () => this.toggle('topics', t)
+    }));
+
+    const hasEarlier = projects.some(isEarlier);
+    const earlierChip = {
+      label: 'Earlier work',
+      style: showEarlier ? CHIP_ON : CHIP_OFF,
+      toggle: () => this.setState(s => ({ showEarlier: !s.showEarlier }))
+    };
+    const anyActive = themes.length > 0 || topics.length > 0 || showEarlier;
+    const themeNotes = THEMES.filter(([key]) => themes.indexOf(key) >= 0)
+      .map(([key, label, desc, body]) => ({ label, desc, body }));
+    return {
+      visible, themeChips, topicChips, anyActive, themeNotes, earlierChip, hasEarlier,
+      hasThemeNotes: themeNotes.length > 0,
+      noResults: projects.length > 0 && visible.length === 0,
+      countLabel: !projects.length ? 'Loading projects…'
+        : (themes.length || topics.length) ? visible.length + ' of ' + inScope.length + ' projects'
+        : inScope.length + ' projects',
+      clearAll: () => this.setState({ themes: [], topics: [], showEarlier: false })
+    };
+  }
+}
+</script>
+</body>
+</html>
