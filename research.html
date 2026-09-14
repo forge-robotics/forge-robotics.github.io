@@ -22,8 +22,10 @@
   body { -webkit-font-smoothing:antialiased; }
   a { color:var(--color-accent-700); }
   a:hover { color:var(--color-accent); }
-  .btn-primary { background: #c94b39; color: var(--color-bg); }
-  .btn-primary:hover, .btn-primary:active { background: #c94b39; color: var(--color-text); }
+  .btn-primary { background: var(--color-accent); color: var(--color-bg); }
+  .btn-primary:hover, .btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
+  button[data-chip="off"]:hover { border-color: var(--color-accent) !important; color: var(--color-accent-700) !important; }
+  button[data-chip="on"]:hover { background: var(--color-accent-800) !important; border-color: var(--color-accent-800) !important; color: var(--color-bg) !important; }
   .grayscale { transition: filter 0.35s ease; }
   .grayscale:hover { filter: none; }
 </style>
@@ -36,12 +38,12 @@
       <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:30px; width:auto; mix-blend-mode:multiply; display:block">
     </a>
     <nav style="display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center">
-      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">People</a>
-      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid var(--color-accent)">Research</a>
-      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Publications</a>
-      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">News</a>
-      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Join Us</a>
-      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">For Lab Members</a>
+      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">People</a>
+      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0">Research</a>
+      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Publications</a>
+      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">News</a>
+      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Join Us</a>
+      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">For Lab Members</a>
     </nav>
   </header>
 
@@ -55,7 +57,7 @@
       <div style="flex:0 0 96px; font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Themes</div>
       <div style="flex:1 1 420px; display:flex; flex-wrap:wrap; gap:10px">
         <sc-for list="{{ themeChips }}" as="chip" hint-placeholder-count="4">
-          <button type="button" onClick="{{ chip.toggle }}" style="{{ chip.style }}" style-hover="border-color:var(--color-accent); color:var(--color-accent-700)">{{ chip.label }}</button>
+          <button type="button" data-chip="{{ chip.state }}" onClick="{{ chip.toggle }}" style="{{ chip.style }}">{{ chip.label }}</button>
         </sc-for>
       </div>
     </div>
@@ -63,7 +65,7 @@
       <div style="flex:0 0 96px; font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Topics</div>
       <div style="flex:1 1 420px; display:flex; flex-wrap:wrap; gap:10px">
         <sc-for list="{{ topicChips }}" as="chip" hint-placeholder-count="8">
-          <button type="button" onClick="{{ chip.toggle }}" style="{{ chip.style }}" style-hover="border-color:var(--color-accent); color:var(--color-accent-700)">{{ chip.label }}</button>
+          <button type="button" data-chip="{{ chip.state }}" onClick="{{ chip.toggle }}" style="{{ chip.style }}">{{ chip.label }}</button>
         </sc-for>
       </div>
     </div>
@@ -71,7 +73,7 @@
       <div style="display:flex; flex-wrap:wrap; gap:var(--space-4) clamp(20px, 3vw, 40px); align-items:baseline">
         <div style="flex:0 0 96px; font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Archive</div>
         <div style="flex:1 1 420px; display:flex; flex-wrap:wrap; gap:10px; align-items:center">
-          <button type="button" onClick="{{ earlierChip.toggle }}" style="{{ earlierChip.style }}" style-hover="border-color:var(--color-accent); color:var(--color-accent-700)">{{ earlierChip.label }}</button>
+          <button type="button" data-chip="{{ earlierChip.state }}" onClick="{{ earlierChip.toggle }}" style="{{ earlierChip.style }}">{{ earlierChip.label }}</button>
           <span style="font-size:14px; line-height:1.4; color:var(--color-neutral-700)">Work that predates the lab, and the questions it raised.</span>
         </div>
       </div>
@@ -79,7 +81,7 @@
     <div style="display:flex; flex-wrap:wrap; gap:var(--space-4); align-items:baseline; justify-content:space-between">
       <div style="font-size:14px; font-weight:600; color:var(--color-neutral-800)">{{ countLabel }}</div>
       <sc-if value="{{ anyActive }}" hint-placeholder-val="{{ false }}">
-        <button type="button" onClick="{{ clearAll }}" style="background:none; border:0; padding:0; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); cursor:pointer; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">Clear filters</button>
+        <button type="button" onClick="{{ clearAll }}" style="background:none; border:0; padding:0; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); cursor:pointer; line-height:1.2; padding:0 0 4px; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">Clear filters</button>
       </sc-if>
     </div>
   </section>
@@ -118,7 +120,7 @@
             <sc-for list="{{ p.parts }}" as="part" hint-placeholder-count="2">
               <li style="display:flex; flex-direction:column; gap:3px; padding:12px 0; border-top:1px solid var(--color-neutral-300)">
                 <div style="font-size:15px; line-height:1.4; text-wrap:pretty">
-                  <sc-if value="{{ part.hasLink }}" hint-placeholder-val="{{ false }}"><a href="{{ part.link }}" style="color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300)" style-hover="color:var(--color-accent)">{{ part.label }}</a></sc-if>
+                  <sc-if value="{{ part.hasLink }}" hint-placeholder-val="{{ false }}"><a href="{{ part.link }}" style="color:var(--color-text); text-decoration:none; border-bottom:1px solid var(--color-accent-400)" style-hover="color:var(--color-accent-700)">{{ part.label }}</a></sc-if>
                   <sc-if value="{{ part.noLink }}" hint-placeholder-val="{{ true }}"><span>{{ part.label }}</span></sc-if>
                 </div>
                 <div style="font-size:12px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--color-neutral-700)">{{ part.meta }}</div>
@@ -153,7 +155,7 @@
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Lab Address</div>
       <div style="font-size:16px; line-height:1.55">Room 1410, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
-      <a href="https://maps.google.com/?q=909+Capability+Dr,+Raleigh,+NC+27606" style="font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent); align-self:flex-start; margin-top:4px" style-hover="color:var(--color-accent)">Open in Maps →</a>
+      <a href="https://maps.google.com/?q=909+Capability+Dr,+Raleigh,+NC+27606" style="font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); align-self:flex-start; margin-top:4px" style-hover="color:var(--color-accent)">Open in Maps →</a>
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
@@ -162,7 +164,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Department</div>
-      <a href="https://www.ece.ncsu.edu/" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">NC State ECE</a>
+      <a href="https://www.ece.ncsu.edu/" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); align-self:flex-start" style-hover="color:var(--color-accent)">NC State ECE</a>
       <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Electrical &amp; Computer Engineering, North Carolina State University.</div>
     </div>
   </footer>
@@ -269,11 +271,13 @@ class Component extends DCLogic {
     const themeChips = THEMES.map(([key, label]) => ({
       label,
       style: themes.indexOf(key) >= 0 ? CHIP_ON : CHIP_OFF,
+      state: themes.indexOf(key) >= 0 ? 'on' : 'off',
       toggle: () => this.toggle('themes', key)
     }));
     const topicChips = allTopics.map(t => ({
       label: t,
       style: topics.indexOf(t) >= 0 ? CHIP_ON : CHIP_OFF,
+      state: topics.indexOf(t) >= 0 ? 'on' : 'off',
       toggle: () => this.toggle('topics', t)
     }));
 
@@ -281,6 +285,7 @@ class Component extends DCLogic {
     const earlierChip = {
       label: 'Earlier work',
       style: showEarlier ? CHIP_ON : CHIP_OFF,
+      state: showEarlier ? 'on' : 'off',
       toggle: () => this.setState(s => ({ showEarlier: !s.showEarlier }))
     };
     const anyActive = themes.length > 0 || topics.length > 0 || showEarlier;

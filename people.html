@@ -22,8 +22,8 @@
   body { -webkit-font-smoothing:antialiased; }
   a { color:var(--color-accent-700); }
   a:hover { color:var(--color-accent); }
-  .btn-primary { background: #c94b39; color: var(--color-bg); }
-  .btn-primary:hover, .btn-primary:active { background: #c94b39; color: var(--color-text); }
+  .btn-primary { background: var(--color-accent); color: var(--color-bg); }
+  .btn-primary:hover, .btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
   .grayscale { transition: filter 0.35s ease; }
   .grayscale:hover { filter: none; }
 </style>
@@ -36,12 +36,12 @@
       <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:30px; width:auto; mix-blend-mode:multiply; display:block">
     </a>
     <nav style="display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center">
-      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid var(--color-accent)">People</a>
-      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Research</a>
-      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Publications</a>
-      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">News</a>
-      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Join Us</a>
-      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">For Lab Members</a>
+      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0">People</a>
+      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Research</a>
+      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Publications</a>
+      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">News</a>
+      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Join Us</a>
+      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">For Lab Members</a>
     </nav>
   </header>
 
@@ -111,7 +111,7 @@
             </sc-for>
           </div>
           <sc-if value="{{ p.hasEmail }}" hint-placeholder-val="{{ false }}">
-            <a href="{{ p.mailto }}" style="font-size:14px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300)" style-hover="color:var(--color-accent)">{{ p.email }}</a>
+            <a href="{{ p.mailto }}" style="font-size:14px; font-weight:600; color:var(--color-text); text-decoration:none; border-bottom:1px solid var(--color-accent-400)" style-hover="color:var(--color-accent-700)">{{ p.email }}</a>
           </sc-if>
         </div>
       </sc-for>
@@ -138,7 +138,7 @@
           <sc-for list="{{ alumni }}" as="a" hint-placeholder-count="2">
             <tr>
               <td style="font-weight:600">
-                <sc-if value="{{ a.hasSite }}" hint-placeholder-val="{{ false }}"><a href="{{ a.site }}" style="color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300)" style-hover="color:var(--color-accent)">{{ a.name }}</a></sc-if>
+                <sc-if value="{{ a.hasSite }}" hint-placeholder-val="{{ false }}"><a href="{{ a.site }}" style="color:var(--color-text); text-decoration:none; border-bottom:1px solid var(--color-accent-400)" style-hover="color:var(--color-accent-700)">{{ a.name }}</a></sc-if>
                 <sc-if value="{{ a.noSite }}" hint-placeholder-val="{{ true }}"><span>{{ a.name }}</span></sc-if>
               </td>
               <td>{{ a.program }}</td>
@@ -158,7 +158,7 @@
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px, 4vw, 56px); line-height:1; letter-spacing:-0.03em; margin:0 0 20px; max-width:22ch; text-wrap:pretty">Looking for students who build and ask why.</h2>
       <p style="font-size:clamp(16px, 1.6vw, 19px); line-height:1.45; margin:0; max-width:46ch; color:var(--color-neutral-800); text-wrap:pretty">Curiosity-driven problem solvers who want to know how a body shapes what it can do.</p>
     </div>
-    <a href="join-us.html" class="btn btn-primary" style="justify-content:flex-start; font-size:15px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:var(--space-4) 28px; text-decoration:none; background-color:var(--color-accent-2-600)">Learn more →</a>
+    <a href="join-us.html" class="btn btn-primary" style="justify-content:flex-start; font-size:15px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:var(--space-4) 28px; text-decoration:none">Learn more →</a>
   </section>
 
   <footer style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 48px) clamp(20px, 2.4vw, 32px); background:var(--color-surface); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap:clamp(24px, 3vw, 48px)">
@@ -172,7 +172,7 @@
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Lab Address</div>
       <div style="font-size:16px; line-height:1.55">Room 1410, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
-      <a href="https://maps.google.com/?q=909+Capability+Dr,+Raleigh,+NC+27606" style="font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent); align-self:flex-start; margin-top:4px" style-hover="color:var(--color-accent)">Open in Maps →</a>
+      <a href="https://maps.google.com/?q=909+Capability+Dr,+Raleigh,+NC+27606" style="font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); align-self:flex-start; margin-top:4px" style-hover="color:var(--color-accent)">Open in Maps →</a>
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
@@ -181,7 +181,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Department</div>
-      <a href="https://www.ece.ncsu.edu/" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">NC State ECE</a>
+      <a href="https://www.ece.ncsu.edu/" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); align-self:flex-start" style-hover="color:var(--color-accent)">NC State ECE</a>
       <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Electrical &amp; Computer Engineering, North Carolina State University.</div>
     </div>
   </footer>
