@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://forge-robotics.github.io/sitemap.xml
