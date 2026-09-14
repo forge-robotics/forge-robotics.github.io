@@ -22,8 +22,8 @@
   body { -webkit-font-smoothing:antialiased; }
   a { color:var(--color-accent-700); }
   a:hover { color:var(--color-accent); }
-  .btn-primary { background: var(--color-accent); color: var(--color-bg); }
-  .btn-primary:hover, .btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
+  .btn-primary { background: #c94b39; color: var(--color-bg); }
+  .btn-primary:hover, .btn-primary:active { background: #c94b39; color: var(--color-text); }
   [data-theme-grid] { display:grid; grid-template-columns:repeat(2, minmax(0, 1fr)); }
   @media (min-width: 1040px) { [data-theme-grid] { grid-template-columns:repeat(4, minmax(0, 1fr)); } }
   .grayscale { transition: filter 0.35s ease; }
@@ -38,22 +38,22 @@
       <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:30px; width:auto; mix-blend-mode:multiply; display:block">
     </a>
     <nav style="display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center">
-      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">People</a><a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Research</a>
+      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">People</a><a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Research</a>
       
-      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Publications</a>
-      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">News</a>
-      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Join Us</a>
-      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">For Lab Members</a>
+      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Publications</a>
+      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">News</a>
+      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Join Us</a>
+      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">For Lab Members</a>
     </nav>
   </header>
 
   
 
-  <section style="margin-top: clamp(28px, 4vw, 64px); padding: clamp(48px, 7vw, 104px) var(--space-8); background-color: var(--color-accent)">
+  <section style="margin-top: clamp(28px, 4vw, 64px); padding: clamp(48px, 7vw, 104px) var(--space-8); background-color: var(--color-accent-2-600)">
     <div style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-bg); margin-bottom:14px">NC State Electrical &amp; Computer Engineering</div>
     <h1 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(56px, 10vw, 152px); line-height:0.9; letter-spacing:-0.04em; margin:0 0 10px; color:var(--color-bg)">FORGE Lab</h1>
     <div style="font-size: clamp(16px, 1.9vw, 30px); font-weight: 600; letter-spacing: 0.01em; line-height: 1.25; margin: 0 0 clamp(34px, 4.4vw, 60px); color: var(--color-bg)">Function-Oriented Robot Geometry and Engineering</div>
-    <p style="line-height: 1.3; font-weight: 500; margin: 0 0 clamp(28px, 3.4vw, 48px); max-width: 30ch; color: var(--color-bg); text-wrap: pretty; font-size: 28px; width: 785px; height: 203px">We seek to understand the relationship between the robot’s morphology and behavior, and use that understanding to create robots designed from the task up.</p>
+    <p style="line-height: 1.3; font-weight: 500; margin: 0 0 clamp(28px, 3.4vw, 48px); max-width: 30ch; color: var(--color-bg); text-wrap: pretty; font-size: clamp(20px, 2.6vw, 28px)">We seek to understand the relationship between the robot’s morphology and behavior, and use that understanding to create robots designed from the task up.</p>
     <div style="display:flex; flex-wrap:wrap; gap:var(--space-4)">
       <a href="research.html" class="btn" style="justify-content:flex-start; background:var(--color-text); color:var(--color-bg); border-color:var(--color-text); font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:14px; letter-spacing:0.06em; padding:var(--space-4) 28px; text-decoration:none" style-hover="background:var(--color-bg); color:var(--color-text)">Research →</a>
       <a href="people.html" class="btn" style="justify-content:flex-start; background:transparent; color:var(--color-bg); border:2px solid var(--color-bg); font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; font-size:14px; letter-spacing:0.06em; padding:var(--space-4) 28px; text-decoration:none" style-hover="background:var(--color-bg); color:var(--color-accent-700)">People</a>
@@ -61,26 +61,26 @@
   </section>
 
   <section data-theme-grid="" style="margin-top:clamp(28px, 4vw, 64px); column-gap:var(--space-8); row-gap:clamp(20px, 2.4vw, 40px)">
-    <div style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
+    <a href="Research.dc.html?theme=represent" style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); text-decoration:none; color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent-700)">Theme 01</div>
       <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.4vw, 34px); line-height:1; letter-spacing:-0.02em">Represent</div>
       <p style="font-size:15px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">How do we describe a robot so that its form can be systematically connected to its function?</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
+    </a>
+    <a href="Research.dc.html?theme=realize" style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); text-decoration:none; color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent-700)">Theme 02</div>
       <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.4vw, 34px); line-height:1; letter-spacing:-0.02em">Realize</div>
       <p style="font-size:15px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">How do we turn a robot design into a physical system we can learn from?</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
+    </a>
+    <a href="Research.dc.html?theme=react" style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); text-decoration:none; color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent-700)">Theme 03</div>
       <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.4vw, 34px); line-height:1; letter-spacing:-0.02em">React</div>
       <p style="font-size:15px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">How does a robot’s embodiment shape the way it interacts with the world?</p>
-    </div>
-    <div style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
+    </a>
+    <a href="Research.dc.html?theme=reason" style="display:flex; flex-direction:column; gap:20px; padding:var(--space-8); text-decoration:none; color:var(--color-text); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent-700)">Theme 04</div>
       <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.4vw, 34px); line-height:1; letter-spacing:-0.02em">Reason</div>
       <p style="font-size:15px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">Why does a robot work, and can we explain what makes it capable?</p>
-    </div>
+    </a>
   </section>
 
   <section style="margin-top:clamp(28px, 4vw, 64px); display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); column-gap:var(--space-8); row-gap:clamp(20px, 2.4vw, 40px)">
@@ -124,7 +124,7 @@
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px, 4vw, 56px); line-height:1; letter-spacing:-0.03em; margin:0 0 20px; max-width:22ch; text-wrap:pretty">Looking for students who build and ask why.</h2>
       <p style="font-size:clamp(16px, 1.6vw, 19px); line-height:1.45; margin:0; max-width:46ch; color:var(--color-neutral-800); text-wrap:pretty">Curiosity-driven problem solvers who want to know how a body shapes what it can do.</p>
     </div>
-    <a href="join-us.html" class="btn btn-primary" style="justify-content: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 15px; letter-spacing: 0.06em; padding: var(--space-4) 28px; text-decoration: none">Learn more →</a>
+    <a href="join-us.html" class="btn btn-primary" style="justify-content: flex-start; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; font-size: 15px; letter-spacing: 0.06em; padding: var(--space-4) 28px; text-decoration: none; background-color: var(--color-accent-2-600)">Learn more →</a>
   </section>
 
   <footer style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 48px) clamp(20px, 2.4vw, 32px); background:var(--color-surface); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap:clamp(24px, 3vw, 48px)">
@@ -133,22 +133,26 @@
         <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px, 3.4vw, 44px); line-height:1; letter-spacing:-0.025em; margin:0 0 12px">Find us</h2>
         <p style="font-size:17px; line-height:1.5; margin:0; max-width:52ch; color:var(--color-neutral-800); text-wrap:pretty">The lab is in Research Building IV on Centennial Campus. Visitors are welcome by appointment.</p>
       </div>
-      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:28px; width:auto; mix-blend-mode:multiply; display:block">
     </div>
-    <div style="display:flex; flex-direction:column; gap:10px">
-      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Lab Address</div>
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Lab</div>
+      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:48px; width:auto; max-width:100%; mix-blend-mode:multiply; display:block; align-self:flex-start">
       <div style="font-size:16px; line-height:1.55">Room 1410, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
-      <a href="https://maps.google.com/?q=909+Capability+Dr,+Raleigh,+NC+27606" style="font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); align-self:flex-start; margin-top:4px" style-hover="color:var(--color-accent)">Open in Maps →</a>
     </div>
-    <div style="display:flex; flex-direction:column; gap:10px">
-      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
-      <div style="font-size:16px; font-weight:600; color:var(--color-text)">wchen55 (at) ncsu.edu</div>
-      <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Press and collaboration enquiries to the same address.</div>
+    <div style="display:flex; flex-direction:column; gap:14px">
+      <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Principal Investigator</div>
+      <div style="height:48px; display:flex; flex-direction:column; justify-content:center">
+        <div style="font-size:16px; font-weight:600; line-height:1.4">Wei-Hsi Chen</div>
+        <div style="font-size:16px; line-height:1.4">wchen55 (at) ncsu.edu</div>
+      </div>
+      <div style="font-size:16px; line-height:1.55">Room 1210, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:10px">
+    <div style="display:flex; flex-direction:column; gap:14px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Department</div>
-      <a href="https://www.ece.ncsu.edu/" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); align-self:flex-start" style-hover="color:var(--color-accent)">NC State ECE</a>
-      <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Electrical &amp; Computer Engineering, North Carolina State University.</div>
+      <a href="https://ece.ncsu.edu/" style="display:block; align-self:flex-start; text-decoration:none">
+        <img src="assets/ncsu-ece-logo.png" alt="NC State University, Electrical and Computer Engineering" style="height:48px; width:auto; max-width:100%; display:block">
+      </a>
+      <div style="font-size:16px; line-height:1.55">890 Oval Drive<br>3114 Koch Hall<br>Raleigh, NC 27606</div>
     </div>
   </footer>
 
