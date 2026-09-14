@@ -87,8 +87,8 @@
           <sc-for list="{{ group.items }}" as="pub" hint-placeholder-count="4">
             <li style="display:flex; flex-wrap:wrap; gap:14px clamp(20px, 3vw, 36px); padding:20px 0; border-top:1px solid var(--color-neutral-300)">
               <div style="flex:0 0 72px; font-size:13px; font-weight:700; letter-spacing:0.06em; color:var(--color-neutral-700)">{{ pub.yearLabel }}</div>
-              <div class="grayscale" style="flex:0 0 150px; position:relative; aspect-ratio:4 / 3; background:var(--color-neutral-300)">
-                <image-slot id="{{ pub.slotId }}" shape="rect" fit="cover" placeholder="Drop a figure"></image-slot>
+              <div class="grayscale" style="flex:0 0 200px; align-self:flex-start; position:relative; aspect-ratio:16 / 9; background:var(--color-neutral-300)">
+                <div role="img" aria-label="{{ pub.title }}" style="{{ pub.figureStyle }}"></div>
               </div>
               <div style="flex:1 1 460px; min-width:0; display:flex; flex-direction:column; gap:6px">
                 <div style="font-size:clamp(17px, 1.7vw, 20px); font-weight:600; line-height:1.35; text-wrap:pretty">
@@ -104,7 +104,10 @@
                 </div>
                 <div style="display:flex; flex-wrap:wrap; gap:8px 20px; align-items:baseline">
                   <div style="font-size:14px; font-weight:600; letter-spacing:0.02em; color:var(--color-neutral-700)">{{ pub.venueLabel }}</div>
-                  <button type="button" onClick="{{ pub.copy }}" style="background:none; border:0; padding:0; font-family:inherit; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); cursor:pointer; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">{{ pub.copyLabel }}</button>
+                  <sc-for list="{{ pub.projectTags }}" as="tag" hint-placeholder-count="0"><a href="{{ tag.href }}" style="font-size:12px; font-weight:600; letter-spacing:0.04em; padding:4px 9px; background:var(--color-accent-200); color:var(--color-accent-700); text-decoration:none" style-hover="background:var(--color-accent-300)">{{ tag.label }}</a></sc-for>
+                  <sc-if value="{{ pub.hasDoi }}" hint-placeholder-val="{{ false }}">
+                    <a href="{{ pub.doiUrl }}" style="font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">DOI</a>
+                  </sc-if>
                 </div>
               </div>
             </li>
@@ -136,7 +139,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
-      <a href="mailto:wchen55@ncsu.edu" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">wchen55@ncsu.edu</a>
+      <div style="font-size:16px; font-weight:600; color:var(--color-text)">wchen55 (at) ncsu.edu</div>
       <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Press and collaboration enquiries to the same address.</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
@@ -180,65 +183,24 @@ function slug(s) {
   return String(s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 }
 
-function bibKey(p) {
-  const last = String(p.authors || 'anon').split(',')[0].trim().split(/\s+/).pop().replace(/[^A-Za-z]/g, '').toLowerCase();
-  const word = String(p.title || '').split(/[\s:]+/)[0].replace(/[^A-Za-z]/g, '').toLowerCase();
-  return [last, p.year || 'inprep', word].filter(Boolean).join('');
-}
-
-function biblatex(p) {
-  const type = p.kind === 'journal' ? 'article' : 'inproceedings';
-  const authors = String(p.authors || '')
-    .replace(/\band\b/g, ',')
-    .split(',').map(a => a.trim()).filter(Boolean).join(' and ');
-  const rows = [
-    ['author', authors],
-    ['title', p.title],
-    [p.kind === 'journal' ? 'journaltitle' : 'booktitle', p.venue],
-    ['year', p.year],
-    ['note', p.status],
-    ['doi', (p.link || '').indexOf('doi.org/') >= 0 ? p.link.split('doi.org/')[1] : ''],
-    ['url', (p.link || '').indexOf('doi.org/') >= 0 ? '' : p.link]
-  ].filter(([, v]) => v);
-  return '@' + type + '{' + bibKey(p) + ',\n' +
-    rows.map(([k, v]) => '  ' + k + ' = {' + v + '},').join('\n') +
-    '\n}';
-}
-
 class Component extends DCLogic {
-  state = { pubs: [], years: [], kinds: [], copied: '' };
-
-  copyBib(p) {
-    const text = biblatex(p);
-    const done = () => {
-      this.setState({ copied: p.id });
-      clearTimeout(this._copyTimer);
-      this._copyTimer = setTimeout(() => this.setState({ copied: '' }), 2000);
-    };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(done, () => this.fallbackCopy(text, done));
-    } else {
-      this.fallbackCopy(text, done);
-    }
-  }
-
-  fallbackCopy(text, done) {
-    const ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); done(); } catch (e) {}
-    document.body.removeChild(ta);
-  }
-
-  componentWillUnmount() { clearTimeout(this._copyTimer); }
+  state = { pubs: [], years: [], kinds: [] };
 
   componentDidMount() {
-    fetch('data/publications.json')
-      .then(r => r.ok ? r.json() : { publications: [] })
-      .then(d => this.setState({ pubs: Array.isArray(d.publications) ? d.publications : [] }))
+    import('./lib/publications.js')
+      .then(m => m.loadPublications())
+      .then(pubs => this.setState({ pubs }))
+      .catch(() => {});
+    // Project tags are the reverse of the projects sheet's Citation IDs column.
+    import('./lib/projects.js')
+      .then(m => m.loadProjects())
+      .then(projects => {
+        const byId = {};
+        projects.forEach(p => (p.citationIds || []).forEach(id => {
+          (byId[id] = byId[id] || []).push({ label: p.title, href: 'research.html#' + p.key });
+        }));
+        this.setState({ projectsById: byId });
+      })
       .catch(() => {});
   }
 
@@ -256,7 +218,7 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { pubs, years, kinds, copied } = this.state;
+    const { pubs, years, kinds } = this.state;
 
     const visible = pubs.filter(p =>
       (!years.length || years.indexOf(this.bucket(p)) >= 0) &&
@@ -272,9 +234,14 @@ class Component extends DCLogic {
         noLink: !p.link,
         authorParts: splitAuthors(p.authors || ''),
         venueLabel: [p.venue, p.status].filter(Boolean).join(' · ') || '—',
-        slotId: 'pub-' + (p.id || slug(p.title)),
-        copyLabel: copied === p.id ? 'Copied ✓' : 'BibLaTeX cite me',
-        copy: () => this.copyBib(p)
+        figureStyle: {
+          position: 'absolute', inset: 0,
+          backgroundSize: 'cover', backgroundPosition: 'center',
+          backgroundImage: p.figure ? 'url("' + p.figure + '")' : 'none'
+        },
+        projectTags: this.state.projectsById[p.id] || [],
+        hasDoi: !!p.doi,
+        doiUrl: p.doi ? 'https://doi.org/' + String(p.doi).replace(/^https?:\/\/doi\.org\//, '') : ''
       }));
       return { label, items, count: items.length + (items.length === 1 ? ' paper' : ' papers'), any: items.length > 0 };
     }).filter(g => g.any);

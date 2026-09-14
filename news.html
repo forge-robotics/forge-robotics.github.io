@@ -59,7 +59,7 @@
             <div style="font-size:11px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:3px 8px; background:var(--color-accent-200); color:var(--color-accent-700)">{{ item.tag }}</div>
           </div>
           <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 3vw, 40px); line-height:1.02; letter-spacing:-0.025em; margin:0; text-wrap:pretty">
-            <sc-if value="{{ item.hasLink }}" hint-placeholder-val="{{ false }}"><a href="{{ item.link }}" style="color:var(--color-text); text-decoration:none; border-bottom:3px solid var(--color-accent)" style-hover="color:var(--color-accent-700)">{{ item.title }}</a></sc-if>
+            <sc-if value="{{ item.hasLink }}" hint-placeholder-val="{{ false }}"><a href="{{ item.link }}" style="color:var(--color-text); text-decoration:none" style-hover="color:var(--color-accent-700)">{{ item.title }}</a></sc-if>
             <sc-if value="{{ item.noLink }}" hint-placeholder-val="{{ true }}"><span>{{ item.title }}</span></sc-if>
           </h2>
           <p style="font-size:clamp(16px, 1.6vw, 19px); line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">{{ item.body }}</p>
@@ -67,9 +67,11 @@
             <a href="{{ item.link }}" style="align-self:flex-start; margin-top:4px; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">{{ item.readLabel }}</a>
           </sc-if>
         </div>
-        <div class="grayscale" style="position:relative; width:100%; aspect-ratio:16 / 10; background:var(--color-neutral-300)">
-          <image-slot id="{{ item.slotId }}" shape="rect" fit="cover" placeholder="Drop an image"></image-slot>
-        </div>
+        <sc-if value="{{ item.hasPhoto }}" hint-placeholder-val="{{ false }}">
+          <div class="grayscale" style="position:relative; width:100%; aspect-ratio:16 / 10; background:var(--color-neutral-300)">
+            <div role="img" aria-label="{{ item.title }}" style="{{ item.photoStyle }}"></div>
+          </div>
+        </sc-if>
       </article>
     </sc-for>
   </section>
@@ -89,7 +91,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
-      <a href="mailto:wchen55@ncsu.edu" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">wchen55@ncsu.edu</a>
+      <div style="font-size:16px; font-weight:600; color:var(--color-text)">wchen55 (at) ncsu.edu</div>
       <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Press and collaboration enquiries to the same address.</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
@@ -102,43 +104,102 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:1000}}">
+// News is read live from the lab Google Sheet (published to the web, CSV via gviz).
+const SHEET_ID = '186So6cB9ius-DlQV-dBgqmnEMb4Qc1BY-PN1KyfxgRQ';
+const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv';
 const MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cell = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else quoted = false; }
+      else cell += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
+    else if (c !== '\r') cell += c;
+  }
+  if (cell.length || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+function toObjects(rows) {
+  if (!rows.length) return [];
+  const head = rows[0].map(h => h.trim().toLowerCase());
+  return rows.slice(1).map(r => {
+    const o = {};
+    head.forEach((h, i) => { if (h) o[h] = (r[i] || '').trim(); });
+    return o;
+  }).filter(o => o.title);
+}
+
+function driveImage(url) {
+  if (!url) return '';
+  const m = /\/file\/d\/([^/]+)/.exec(url) || /[?&]id=([^&]+)/.exec(url);
+  return m ? 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1200' : url;
+}
+
+// Accepts MM/DD/YYYY or YYYY-MM-DD; returns {sort, label}.
+function parseDate(raw) {
+  const s = String(raw || '').trim();
+  let y, mo, d;
+  let m = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(s);
+  if (m) { mo = +m[1]; d = +m[2]; y = +m[3]; }
+  else {
+    m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(s);
+    if (m) { y = +m[1]; mo = +m[2]; d = +m[3]; }
+  }
+  if (!y) return { sort: '', label: s };
+  const pad = n => String(n).padStart(2, '0');
+  return { sort: y + '-' + pad(mo) + '-' + pad(d), label: MONTHS[mo - 1] + ' ' + d + ', ' + y };
+}
+
+function sourceOf(url) {
+  const m = /^https?:\/\/(?:www\.)?([^/]+)/.exec(url || '');
+  return m ? m[1] : '';
+}
+
 class Component extends DCLogic {
-  state = { news: [] };
+  state = { rows: [], failed: false };
 
   componentDidMount() {
-    fetch('data/news.json')
-      .then(r => r.ok ? r.json() : { news: [] })
-      .then(d => this.setState({ news: Array.isArray(d.news) ? d.news : [] }))
-      .catch(() => {});
+    fetch(SHEET_CSV)
+      .then(r => r.ok ? r.text() : Promise.reject())
+      .then(t => this.setState({ rows: toObjects(parseCSV(t)) }))
+      .catch(() => this.setState({ failed: true }));
   }
 
   renderVals() {
-    const items = this.state.news.slice()
-      .sort((a, b) => String(b.date).localeCompare(String(a.date)))
-      .map(n => {
-        const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(n.date || ''));
-        const dateLabel = m
-          ? MONTHS[parseInt(m[2], 10) - 1] + ' ' + parseInt(m[3], 10) + ', ' + m[1]
-          : (n.date || '');
-        return {
-          dateLabel,
-          tag: n.tag || 'News',
-          title: n.title,
-          body: n.body || '',
-          link: n.link || '',
-          hasLink: !!n.link,
-          noLink: !n.link,
-          readLabel: n.source ? 'Read on ' + n.source + ' →' : 'Read more →',
-          slotId: 'news-' + String(n.date || '') + '-' + String(n.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40)
-        };
-      });
+    const items = this.state.rows.map(n => {
+      const d = parseDate(n.date);
+      const link = n['news link'] || '';
+      const photo = driveImage(n['photo link']);
+      return {
+        sort: d.sort,
+        dateLabel: d.label,
+        tag: n.tabs || 'News',
+        title: n.title,
+        body: n.description || '',
+        link,
+        hasLink: !!link,
+        noLink: !link,
+        hasPhoto: !!photo,
+        photoStyle: {
+          position: 'absolute', inset: 0, backgroundSize: 'cover',
+          backgroundPosition: 'center', backgroundImage: 'url("' + photo + '")'
+        },
+        readLabel: link ? 'Read on ' + (sourceOf(link) || 'the source') + ' →' : ''
+      };
+    }).sort((a, b) => b.sort.localeCompare(a.sort));
+
     return {
       items,
       countLabel: items.length
         ? 'What the lab has been doing, newest first.'
-        : 'Nothing posted yet.'
+        : (this.state.failed ? 'News is unavailable right now.' : 'Nothing posted yet.')
     };
   }
 }

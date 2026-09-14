@@ -98,10 +98,12 @@
 
   <section style="margin-top:clamp(28px, 4vw, 56px); display:grid; grid-template-columns:repeat(auto-fill, minmax(min(340px, 100%), 1fr)); column-gap:clamp(24px, 3vw, 48px); row-gap:clamp(32px, 4vw, 56px)">
     <sc-for list="{{ visible }}" as="p" hint-placeholder-count="6">
-      <article style="display:flex; flex-direction:column; gap:14px; min-width:0; padding:clamp(24px, 2.4vw, 32px); background:var(--color-surface)">
-        <div class="grayscale" style="position:relative; width:100%; aspect-ratio:16 / 10; background:var(--color-neutral-300); margin-bottom:6px">
-          <image-slot id="{{ p.slotId }}" shape="rect" fit="cover" placeholder="Drop a project image"></image-slot>
-        </div>
+      <article id="{{ p.key }}" style="display:flex; flex-direction:column; gap:14px; min-width:0; padding:clamp(24px, 2.4vw, 32px); background:var(--color-surface); scroll-margin-top:96px">
+        <sc-if value="{{ p.hasFigure }}" hint-placeholder-val="{{ true }}">
+          <div class="grayscale" style="position:relative; width:100%; aspect-ratio:16 / 9; background:var(--color-neutral-300); margin-bottom:6px">
+            <div role="img" aria-label="{{ p.title }}" style="{{ p.figureStyle }}"></div>
+          </div>
+        </sc-if>
         <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline">
           <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-accent-700)">{{ p.themeLabel }}</div>
           <sc-if value="{{ p.isEarlier }}" hint-placeholder-val="{{ false }}">
@@ -115,7 +117,10 @@
           <ul style="list-style:none; margin:4px 0 0; padding:0; display:flex; flex-direction:column">
             <sc-for list="{{ p.parts }}" as="part" hint-placeholder-count="2">
               <li style="display:flex; flex-direction:column; gap:3px; padding:12px 0; border-top:1px solid var(--color-neutral-300)">
-                <div style="font-size:15px; line-height:1.4; text-wrap:pretty">{{ part.label }}</div>
+                <div style="font-size:15px; line-height:1.4; text-wrap:pretty">
+                  <sc-if value="{{ part.hasLink }}" hint-placeholder-val="{{ false }}"><a href="{{ part.link }}" style="color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300)" style-hover="color:var(--color-accent)">{{ part.label }}</a></sc-if>
+                  <sc-if value="{{ part.noLink }}" hint-placeholder-val="{{ true }}"><span>{{ part.label }}</span></sc-if>
+                </div>
                 <div style="font-size:12px; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; color:var(--color-neutral-700)">{{ part.meta }}</div>
               </li>
             </sc-for>
@@ -126,7 +131,6 @@
             <span style="font-size:12px; font-weight:600; letter-spacing:0.04em; padding:5px 10px; background:var(--color-accent-200); color:var(--color-accent-700)">{{ topic }}</span>
           </sc-for>
         </div>
-        <div style="font-size:13px; font-weight:600; letter-spacing:0.04em; color:var(--color-neutral-700)">{{ p.meta }}</div>
       </article>
     </sc-for>
   </section>
@@ -153,7 +157,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
-      <a href="mailto:wchen55@ncsu.edu" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">wchen55@ncsu.edu</a>
+      <div style="font-size:16px; font-weight:600; color:var(--color-text)">wchen55 (at) ncsu.edu</div>
       <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Press and collaboration enquiries to the same address.</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
@@ -178,7 +182,7 @@ const CHIP_OFF = CHIP_BASE + 'background:var(--color-bg); border:2px solid var(-
 const CHIP_ON = CHIP_BASE + 'background:var(--color-accent-700); border:2px solid var(--color-accent-700); color:var(--color-bg)';
 
 class Component extends DCLogic {
-  state = { projects: [], themes: [], topics: [], showEarlier: false };
+  state = { projects: [], themes: [], topics: [], showEarlier: false, pubs: [] };
 
   componentDidMount() {
     let preset = [];
@@ -186,12 +190,13 @@ class Component extends DCLogic {
       const t = new URLSearchParams(window.location.search).get('theme');
       if (t && THEMES.some(([k]) => k === t)) preset = [t];
     } catch (e) {}
-    fetch('data/projects.json')
-      .then(r => r.ok ? r.json() : { projects: [] })
-      .then(d => this.setState({
-        projects: Array.isArray(d.projects) ? d.projects : [],
-        themes: preset
-      }))
+    import('./lib/projects.js')
+      .then(m => m.loadProjects())
+      .then(projects => this.setState({ projects, themes: preset }))
+      .catch(() => {});
+    import('./lib/publications.js')
+      .then(m => m.loadPublications())
+      .then(pubs => this.setState({ pubs }))
       .catch(() => {});
   }
 
@@ -203,7 +208,31 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { projects, themes, topics, showEarlier } = this.state;
+    const { projects, themes, topics, showEarlier, pubs } = this.state;
+    // Papers are joined to a project by the Citation IDs column of the projects sheet.
+    const byId = {};
+    pubs.forEach(p => { if (p.id) byId[p.id] = p; });
+    const papersFor = ids => {
+      const seen = {};
+      return (ids || [])
+        .map(id => byId[id])
+        .filter(Boolean)
+        .sort((a, b) => String(b.year || '9999').localeCompare(String(a.year || '9999')))
+        // a workshop version of an archival paper shares its title — show it once
+        .filter(p => {
+          const t = String(p.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+          if (seen[t]) return false;
+          seen[t] = 1;
+          return true;
+        })
+        .map(p => ({
+        label: p.title,
+        meta: [p.venue, p.year, p.status].filter(Boolean).join(' · '),
+        link: p.link || '',
+        hasLink: !!p.link,
+        noLink: !p.link
+      }));
+    };
     const themeName = k => (THEMES.find(([key]) => key === k) || [k, k])[1];
     const isEarlier = p => String(p.era || '').toLowerCase() === 'earlier';
 
@@ -215,18 +244,20 @@ class Component extends DCLogic {
         && (!topics.length || topics.some(t => ptop.indexOf(t) >= 0));
     }).map(p => ({
       isEarlier: isEarlier(p),
+      key: p.key || '',
       title: p.title,
       subtitle: p.subtitle,
       blurb: p.blurb,
       topics: p.topics || [],
-      slotId: 'proj-' + String(p.title || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+      hasFigure: !!p.figure,
+      figureStyle: {
+        position: 'absolute', inset: 0,
+        backgroundSize: 'cover', backgroundPosition: 'center',
+        backgroundImage: p.figure ? 'url("' + p.figure + '")' : 'none'
+      },
       themeLabel: (p.themes || []).map(themeName).join(' · '),
-      meta: [p.venue, p.year].filter(Boolean).join(', '),
-      parts: (p.parts || []).map(part => ({
-        label: part.label,
-        meta: [part.venue, part.year].filter(Boolean).join(' · ')
-      })),
-      hasParts: (p.parts || []).length > 0
+      parts: papersFor(p.citationIds),
+      hasParts: papersFor(p.citationIds).length > 0
     }));
 
     const allTopics = [];

@@ -55,25 +55,26 @@
     <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:clamp(24px, 3.4vw, 48px)">
       <div style="flex:0 1 340px; max-width:340px; min-width:220px">
         <img src="assets/wei-hsi-chen.png" alt="Wei-Hsi Chen" class="grayscale" style="width:100%; max-width:340px; height:auto; display:block">
-      </div>
-      <div style="flex:1 1 380px; min-width:0; display:flex; flex-direction:column; gap:20px">
+      </div><div style="flex:1 1 380px; min-width:0; display:flex; flex-direction:column; gap:20px">
         <div>
           <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px, 3.6vw, 46px); line-height:1; letter-spacing:-0.02em; margin:0 0 10px">Wei-Hsi Chen</h2>
-          <div style="font-size:16px; font-weight:600; line-height:1.5; color:var(--color-accent-700)">Assistant Professor<br>Electrical &amp; Computer Engineering, NC State University</div>
+          <div style="font-size:16px; font-weight:600; line-height:1.5; color:var(--color-accent-700)">Assistant Professor<br>Amein Family Term Professor in Robotics<br>Electrical &amp; Computer Engineering, NC State University</div>
+          <div style="font-size:16px; line-height:1.5; color:var(--color-neutral-800); margin-top:8px">wchen55 (at) ncsu.edu · Research Building IV, #1210</div>
         </div>
-        <p style="font-size:17px; line-height:1.55; margin:0; text-wrap:pretty">Wei-Hsi Chen directs FORGE Lab, where he studies how a robot's geometry determines what it is able to do. His work spans the algorithmic design of origami mechanisms, leg-wheel transformable and legged robots, and tunable-stiffness actuation — including Kinegami, a method for designing compliant kinematic chains from tubular origami.</p>
+        <p style="font-size:17px; line-height:1.55; margin:0; text-wrap:pretty">Prof. Wei-Hsi Chen directs FORGE Lab, where he studies how a robot's geometry determines what it is able to do. His work spans the algorithmic design of origami mechanisms, leg-wheel transformable and legged robots, and tunable-stiffness actuation — including Kinegami, a method for designing compliant kinematic chains from tubular origami.</p>
         <p style="font-size:17px; line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">Before joining NC State he was a postdoctoral associate at Penn. He received his Ph.D. in Electrical and Systems Engineering and his M.S. in Robotics from the University of Pennsylvania, and his B.S. and M.S. in Mechanical Engineering from National Taiwan University.&nbsp;</p>
         <div style="display:flex; flex-wrap:wrap; gap:10px 14px; align-items:baseline; padding-top:16px; border-top:1px solid var(--color-neutral-300)">
           <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Teaching</div>
           <div style="font-size:16px; line-height:1.5">ECE 455/555, Industrial Robotics Systems</div>
         </div>
         <div style="display:flex; flex-wrap:wrap; gap:var(--space-3); margin-top:4px">
-          <a href="mailto:wchen55@ncsu.edu" class="btn btn-primary" style="justify-content:flex-start; font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:var(--space-3) 20px; text-decoration:none">wchen55@ncsu.edu</a>
           <a href="https://scholar.google.com/citations?user=s85hvH4AAAAJ&amp;hl=en" class="btn btn-secondary" style="justify-content:flex-start; border-width:2px; border-color:var(--color-text); font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:10px 20px; text-decoration:none" style-hover="background:var(--color-accent-200); border-color:var(--color-accent); color:var(--color-accent-700)">Google Scholar</a>
           <a href="assets/Wei-Hsi-Chen-CV.pdf" class="btn btn-secondary" style="justify-content:flex-start; border-width:2px; border-color:var(--color-text); font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:10px 20px; text-decoration:none" style-hover="background:var(--color-accent-200); border-color:var(--color-accent); color:var(--color-accent-700)">CV (PDF)</a>
           <a href="https://livingsoul.weebly.com/" class="btn btn-secondary" style="justify-content:flex-start; border-width:2px; border-color:var(--color-text); font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:10px 20px; text-decoration:none" style-hover="background:var(--color-accent-200); border-color:var(--color-accent); color:var(--color-accent-700)">Personal site</a>
+          <a href="https://ece.ncsu.edu/people/wchen55/" class="btn btn-secondary" style="justify-content:flex-start; border-width:2px; border-color:var(--color-text); font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:10px 20px; text-decoration:none" style-hover="background:var(--color-accent-200); border-color:var(--color-accent); color:var(--color-accent-700)">NC State ECE</a>
         </div>
       </div>
+      
     </div>
   </section>
 
@@ -85,10 +86,22 @@
     <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(max(160px, 21%), 1fr)); align-items:start; column-gap:clamp(24px, 3vw, 48px); row-gap:clamp(32px, 4vw, 56px)">
       <sc-for list="{{ members }}" as="p" hint-placeholder-count="0">
         <div style="min-width:0; display:flex; flex-direction:column; gap:14px">
-          <div class="grayscale" style="position:relative; width:100%; aspect-ratio:1 / 1; background:var(--color-neutral-300)">
-            <image-slot id="{{ p.slotId }}" shape="rect" fit="cover" placeholder="Drop a portrait"></image-slot>
+          <sc-if value="{{ p.hasSite }}" hint-placeholder-val="{{ false }}">
+            <a href="{{ p.site }}" style="display:block; text-decoration:none; color:inherit">
+              <div class="grayscale" style="position:relative; width:100%; aspect-ratio:1 / 1; background:var(--color-neutral-300)">
+                <div role="img" aria-label="{{ p.name }}" style="{{ p.photoStyle }}"></div>
+              </div>
+            </a>
+          </sc-if>
+          <sc-if value="{{ p.plainPhoto }}" hint-placeholder-val="{{ true }}">
+            <div class="grayscale" style="position:relative; width:100%; aspect-ratio:1 / 1; background:var(--color-neutral-300)">
+              <div role="img" aria-label="{{ p.name }}" style="{{ p.photoStyle }}"></div>
+            </div>
+          </sc-if>
+          <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(22px, 2.2vw, 28px); line-height:1.05; letter-spacing:-0.02em">
+            <sc-if value="{{ p.hasSite }}" hint-placeholder-val="{{ false }}"><a href="{{ p.site }}" style="color:var(--color-text); text-decoration:none" style-hover="color:var(--color-accent-700)">{{ p.name }}</a></sc-if>
+            <sc-if value="{{ p.noSite }}" hint-placeholder-val="{{ true }}"><span>{{ p.name }}</span></sc-if>
           </div>
-          <div style="font-family:var(--font-heading); font-weight:800; font-size:clamp(22px, 2.2vw, 28px); line-height:1.05; letter-spacing:-0.02em">{{ p.name }}</div>
           <div style="font-size:14px; font-weight:600; line-height:1.45; color:var(--color-accent-700)">{{ p.role }}</div>
           <div style="font-size:14px; line-height:1.45; color:var(--color-neutral-700)">{{ p.dept }}</div>
           <div style="font-size:15px; line-height:1.45; color:var(--color-neutral-800); text-wrap:pretty">{{ p.focus }}</div>
@@ -105,7 +118,41 @@
     </div>
   </section>
 
-  <section style="margin-top:clamp(28px, 4vw, 64px); padding:56px var(--space-8); display:flex; flex-wrap:wrap; gap:32px; align-items:flex-end; justify-content:space-between">
+  <sc-if value="{{ hasAlumni }}" hint-placeholder-val="{{ false }}">
+    <section style="margin-top:clamp(28px, 4vw, 64px)">
+      <div style="padding:36px 0 var(--space-6); display:flex; align-items:baseline; justify-content:space-between; gap:var(--space-6); flex-wrap:wrap">
+        <div style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase">Alumni</div>
+        <div style="font-size:13px; font-weight:600; color:var(--color-neutral-700)">{{ alumniCount }}</div>
+      </div>
+      <table class="table" style="width:100%; border-collapse:collapse">
+        <thead>
+          <tr>
+            <th style="text-align:left">Name</th>
+            <th style="text-align:left">Program</th>
+            <th style="text-align:left">Degree</th>
+            <th style="text-align:left">Project</th>
+            <th style="text-align:left">Current position</th>
+          </tr>
+        </thead>
+        <tbody>
+          <sc-for list="{{ alumni }}" as="a" hint-placeholder-count="2">
+            <tr>
+              <td style="font-weight:600">
+                <sc-if value="{{ a.hasSite }}" hint-placeholder-val="{{ false }}"><a href="{{ a.site }}" style="color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300)" style-hover="color:var(--color-accent)">{{ a.name }}</a></sc-if>
+                <sc-if value="{{ a.noSite }}" hint-placeholder-val="{{ true }}"><span>{{ a.name }}</span></sc-if>
+              </td>
+              <td>{{ a.program }}</td>
+              <td>{{ a.degree }}</td>
+              <td>{{ a.project }}</td>
+              <td>{{ a.position }}</td>
+            </tr>
+          </sc-for>
+        </tbody>
+      </table>
+    </section>
+  </sc-if>
+
+  <section style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 56px) 0; display:flex; flex-wrap:wrap; gap:32px; align-items:flex-end; justify-content:space-between">
     <div style="flex:1 1 420px">
       <div style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-accent-700); margin-bottom:20px">Now Recruiting</div>
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(30px, 4vw, 56px); line-height:1; letter-spacing:-0.03em; margin:0 0 20px; max-width:22ch; text-wrap:pretty">Looking for students who build and ask why.</h2>
@@ -129,7 +176,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Email</div>
-      <a href="mailto:wchen55@ncsu.edu" style="font-size:16px; font-weight:600; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">wchen55@ncsu.edu</a>
+      <div style="font-size:16px; font-weight:600; color:var(--color-text)">wchen55 (at) ncsu.edu</div>
       <div style="font-size:15px; line-height:1.5; color:var(--color-neutral-800)">Press and collaboration enquiries to the same address.</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:10px">
@@ -142,40 +189,133 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+// Roster is read live from the lab Google Sheet (published to the web, CSV via gviz).
+const SHEET_ID = '10q9NR3mh1ztwKMde8FuGx2lmVslA2r2lZk-10L3rESM';
+const SHEET_CSV = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv';
+
+const PROGRAMS = {
+  ECE: 'Electrical & Computer Engineering',
+  MAE: 'Mechanical & Aerospace Engineering',
+  ME: 'Mechanical Engineering',
+  CS: 'Computer Science',
+  CSC: 'Computer Science',
+  BME: 'Biomedical Engineering'
+};
+const DEGREES = [
+  { test: /ph\.?\s*d/i, role: 'PhD Student', rank: 0 },
+  { test: /m\.?\s*s|master/i, role: "Master's Student", rank: 1 },
+  { test: /b\.?\s*s|bachelor|under/i, role: 'Undergraduate Researcher', rank: 2 }
+];
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [], cell = '', quoted = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (quoted) {
+      if (c === '"') { if (text[i + 1] === '"') { cell += '"'; i++; } else quoted = false; }
+      else cell += c;
+    } else if (c === '"') quoted = true;
+    else if (c === ',') { row.push(cell); cell = ''; }
+    else if (c === '\n') { row.push(cell); rows.push(row); row = []; cell = ''; }
+    else if (c !== '\r') cell += c;
+  }
+  if (cell.length || row.length) { row.push(cell); rows.push(row); }
+  return rows;
+}
+
+function toObjects(rows) {
+  if (!rows.length) return [];
+  const head = rows[0].map(h => h.trim().toLowerCase());
+  return rows.slice(1).map(r => {
+    const o = {};
+    head.forEach((h, i) => { if (h) o[h] = (r[i] || '').trim(); });
+    return o;
+  }).filter(o => o.name);
+}
+
+// Google Drive share links need rewriting before an <img> can use them.
+function driveImage(url) {
+  if (!url) return '';
+  const m = /\/file\/d\/([^/]+)/.exec(url) || /[?&]id=([^&]+)/.exec(url);
+  return m ? 'https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w800' : url;
+}
+
+function expectedLabel(y) {
+  const m = /(\d{2,4})/.exec(y || '');
+  if (!m) return '';
+  return "'" + m[1].slice(-2);
+}
+
 class Component extends DCLogic {
-  state = { people: [] };
+  state = { rows: [], failed: false };
 
   componentDidMount() {
-    fetch('data/people.json')
-      .then(r => r.ok ? r.json() : { people: [] })
-      .then(d => this.setState({ people: Array.isArray(d.people) ? d.people : [] }))
-      .catch(() => {});
+    fetch(SHEET_CSV)
+      .then(r => r.ok ? r.text() : Promise.reject())
+      .then(t => this.setState({ rows: toObjects(parseCSV(t)) }))
+      .catch(() => this.setState({ failed: true }));
   }
 
   renderVals() {
-    const all = this.state.people;
-    const ORDER = { phd: 0, ms: 1, undergrad: 2, visitor: 3 };
-    const rank = p => {
-      const g = (p.group || '').toLowerCase();
-      return ORDER[g] === undefined ? 9 : ORDER[g];
-    };
-    const shape = p => ({
-      name: p.name,
-      role: p.role,
-      dept: p.dept || '',
-      focus: p.focus || '',
-      email: p.email || '',
-      hasEmail: !!p.email,
-      mailto: p.email ? 'mailto:' + p.email : '',
-      tags: p.tags || [],
-      slotId: 'person-' + String(p.name || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+    const rows = this.state.rows;
+    const current = rows.filter(r => /^y/i.test(r.current || ''));
+    const past = rows.filter(r => !/^y/i.test(r.current || ''));
+
+    const degreeOf = r => DEGREES.find(d => d.test.test(r.degree || '')) || { role: r.degree || 'Researcher', rank: 8 };
+
+    const members = current.map(r => {
+      const d = degreeOf(r);
+      const site = r['personal website'] || '';
+      const program = PROGRAMS[(r.program || '').toUpperCase()] || r.program || '';
+      const year = expectedLabel(r['expected year']);
+      const email = (r.email || '').replace(/\s*\(at\)\s*/i, '@');
+      return {
+        rank: d.rank,
+        name: r.name,
+        role: d.role,
+        dept: [program, year].filter(Boolean).join(' '),
+        focus: r.description || '',
+        photoStyle: {
+          position: 'absolute', inset: 0, backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundImage: 'url("' + driveImage(r['photo link']) + '")'
+        },
+        site,
+        hasSite: !!site,
+        noSite: !site,
+        plainPhoto: !site,
+        email,
+        hasEmail: false,
+        mailto: email ? 'mailto:' + email : '',
+        tags: (r.project || '').split(/[;,]/).map(s => s.trim()).filter(Boolean).map(label => ({
+          label,
+          href: 'research.html'
+        }))
+      };
+    }).sort((a, b) => a.rank - b.rank);
+
+    const alumni = past.map(r => {
+      const site = r['personal website'] || '';
+      return {
+        name: r.name,
+        program: r.program || '—',
+        degree: r.degree || '—',
+        project: r.project || '—',
+        position: r['current position'] || '—',
+        site,
+        hasSite: !!site,
+        noSite: !site
+      };
     });
-    const members = all.slice().sort((a, b) => rank(a) - rank(b)).map(shape);
+
     return {
-      members,
+      members, alumni,
+      hasAlumni: alumni.length > 0,
+      alumniCount: alumni.length + (alumni.length === 1 ? ' alum' : ' alumni'),
       memberCount: members.length
         ? members.length + (members.length === 1 ? ' member' : ' members')
-        : 'Recruiting'
+        : (this.state.failed ? 'Roster unavailable' : 'Recruiting')
     };
   }
 }

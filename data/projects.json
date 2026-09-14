@@ -1,5 +1,5 @@
 {
-  "_note": "Seeded from Dr. Chen's CV — edit freely. themes: represent | realize | react | reason. topics are free-form; the Research page builds its topic filter from whatever appears here. Each project may carry a `parts` list of sub-projects: {label, venue, year, link}. Set \"era\": \"earlier\" on work that predates the lab — those cards are hidden until the Earlier work filter is clicked.",
+  "_note": "Seeded from Dr. Chen's CV — edit freely. themes: represent | realize | react | reason. topics are free-form; the Research page builds its topic filter from whatever appears here. Each project has a stable `key` used to join publications to it (the Publications sheet's `projects` column holds comma-separated keys). Never change a key once published — it is in the page's URLs.",
   "projects": [
     {
       "title": "Kinegami",
@@ -14,29 +14,7 @@
         "Design automation",
         "Kinematics"
       ],
-      "venue": "",
-      "year": "2022–2024",
-      "link": "",
-      "parts": [
-        {
-          "label": "Algorithmic design of compliant kinematic chains from tubular origami",
-          "venue": "IEEE Transactions on Robotics",
-          "year": "2022",
-          "link": ""
-        },
-        {
-          "label": "Kinematic trees from CSC Dubins planning for link shapes",
-          "venue": "WAFR",
-          "year": "2024",
-          "link": ""
-        },
-        {
-          "label": "Open-source software for creating chains from tubular origami",
-          "venue": "8OSME",
-          "year": "2024",
-          "link": ""
-        }
-      ]
+      "key": "kinegami"
     },
     {
       "title": "Programmable compliance",
@@ -52,29 +30,7 @@
         "Actuation",
         "Hopping"
       ],
-      "venue": "",
-      "year": "2020–2025",
-      "link": "",
-      "parts": [
-        {
-          "label": "A programmably compliant origami mechanism for dynamically dexterous robots",
-          "venue": "IEEE RA-L",
-          "year": "2020",
-          "link": ""
-        },
-        {
-          "label": "Pneumatic tunable-stiffness bellows actuator",
-          "venue": "RoboSoft",
-          "year": "2024",
-          "link": ""
-        },
-        {
-          "label": "Tunable stiffness for energy-efficient vertical hopping across ground profiles",
-          "venue": "ICRA",
-          "year": "2025",
-          "link": ""
-        }
-      ]
+      "key": "compliance"
     },
     {
       "title": "Leg-wheel transformable robots",
@@ -89,24 +45,8 @@
         "Wheeled",
         "Locomotion"
       ],
-      "venue": "",
-      "year": "2014–2017",
-      "link": "",
-      "parts": [
-        {
-          "label": "TurboQuad: smooth and fast behavioral transitions",
-          "venue": "IEEE Transactions on Robotics",
-          "year": "2017",
-          "link": ""
-        },
-        {
-          "label": "Quattroped: a leg-wheel transformable robot",
-          "venue": "IEEE/ASME T-Mech",
-          "year": "2014",
-          "link": ""
-        }
-      ],
-      "era": "earlier"
+      "era": "earlier",
+      "key": "legwheel"
     },
     {
       "title": "Monkey-bar terrain quadruped",
@@ -121,10 +61,7 @@
         "Codesign",
         "Grasping"
       ],
-      "venue": "In preparation",
-      "year": "",
-      "link": "",
-      "parts": []
+      "key": "monkeybar"
     },
     {
       "title": "When is a body worth designing?",
@@ -137,10 +74,7 @@
         "Embodied intelligence",
         "Theory"
       ],
-      "venue": "IOP Conference Series",
-      "year": "2023",
-      "link": "",
-      "parts": []
+      "key": "embodiment"
     },
     {
       "title": "Scaling across sizes",
@@ -155,10 +89,7 @@
         "Theory",
         "Locomotion"
       ],
-      "venue": "In preparation",
-      "year": "",
-      "link": "",
-      "parts": []
+      "key": "scaling"
     }
   ]
 }
