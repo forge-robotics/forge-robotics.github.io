@@ -11,11 +11,11 @@
 <meta property="og:title" content="Join Us — FORGE Lab at NC State">
 <meta property="og:description" content="PhD, MS and undergraduate research positions in the FORGE Robotics Lab at NC State University.">
 <meta property="og:url" content="https://forge-robotics.github.io/join-us.html">
-<meta property="og:image" content="https://forge-robotics.github.io/assets/forge-logo.jpeg">
+<meta property="og:image" content="https://forge-robotics.github.io/assets/forge-logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Join Us — FORGE Lab at NC State">
 <meta name="twitter:description" content="PhD, MS and undergraduate research positions in the FORGE Robotics Lab at NC State University.">
-<meta name="twitter:image" content="https://forge-robotics.github.io/assets/forge-logo.jpeg">
+<meta name="twitter:image" content="https://forge-robotics.github.io/assets/forge-logo.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -32,8 +32,10 @@
   body { -webkit-font-smoothing:antialiased; }
   a { color:var(--color-accent-700); }
   a:hover { color:var(--color-accent); }
-  .btn-primary { background: #c94b39; color: var(--color-bg); }
-  .btn-primary:hover, .btn-primary:active { background: #c94b39; color: var(--color-text); }
+  .btn-primary { background: var(--color-accent); color: var(--color-bg); }
+  .btn-primary:hover, .btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
+  [data-role-grid] { display:grid; grid-template-columns:minmax(0, 1fr); }
+  @media (min-width: 900px) { [data-role-grid] { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
   .grayscale { transition: filter 0.35s ease; }
   .grayscale:hover { filter: none; }
 </style>
@@ -43,15 +45,15 @@
 
   <header class="nav" style="justify-content:space-between; gap:var(--space-8); flex-wrap:wrap; padding:var(--space-4) 0; border-bottom:2px solid var(--color-text); background:var(--color-bg); position:sticky; top:0; z-index:20">
     <a href="index.html" class="nav-brand" style="display:flex; align-items:center; text-decoration:none; flex:0 0 auto">
-      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="width: auto; mix-blend-mode: multiply; display: block; height: 30px">
+      <img src="assets/forge-logo.png" alt="FORGE Lab" style="width: auto; mix-blend-mode: multiply; display: block; height: 30px">
     </a>
-    <nav style="display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center">
-      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">People</a>
-      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Research</a>
-      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Publications</a>
-      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">News</a>
-      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid var(--color-accent)">Join Us</a>
-      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">For Lab Members</a>
+    <nav style="display:flex; flex-wrap:wrap; column-gap:var(--space-6); row-gap:var(--space-4); align-items:center">
+      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">People</a>
+      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Research</a>
+      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Publications</a>
+      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">News</a>
+      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0">Join Us</a>
+      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">For Lab Members</a>
     </nav>
   </header>
 
@@ -67,21 +69,21 @@
     </div>
   </section>
 
-  <section style="margin-top:clamp(28px, 4vw, 64px); display:flex; flex-wrap:wrap">
-    <div style="flex:1 1 280px; padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4)">
+  <section data-role-grid="" style="margin-top:clamp(28px, 4vw, 64px)">
+    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent)">01</div>
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.8vw, 36px); line-height:1.02; letter-spacing:-0.02em; margin:0">Mechatronics</h2>
       <p style="font-size:clamp(18px, 1.8vw, 21px); font-weight:600; line-height:1.4; margin:0; color:var(--color-text); text-wrap:pretty">You enjoy building things from scratch and figuring out why they do—or don't—work.</p>
       <p style="font-size:17px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We develop dynamic robotic systems, so experience with mechanisms, motors and actuators (e.g., BLDC, DC, and high-torque servos), embedded systems and computers (e.g., Arduino, Teensy, Raspberry Pi), sensors, and rapid prototyping is valuable.</p>
       <p style="font-size:17px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">Just as importantly, I am looking for people who can turn a one-off prototype into knowledge: documenting what they built, why they built it that way, and what they learned from it.</p>
     </div>
-    <div style="flex:1 1 280px; padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4)">
+    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent)">02</div>
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.8vw, 36px); line-height:1.02; letter-spacing:-0.02em; margin:0">Design abstractions</h2>
       <p style="font-size:clamp(18px, 1.8vw, 21px); font-weight:600; line-height:1.4; margin:0; color:var(--color-text); text-wrap:pretty">How can we describe robots in a way that computers can reason about and eventually generate them?</p>
       <p style="font-size:17px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We are working toward parameterizing and systematizing the robot design process, developing representations that connect tasks, robot morphology, and behavior. Students in this direction may come from computer science, robotics, computational design, or related areas and should enjoy abstraction, software frameworks, algorithms, and thinking carefully about how complex physical systems can be represented computationally.</p>
     </div>
-    <div style="flex:1 1 280px; padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4)">
+    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent)">03</div>
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.8vw, 36px); line-height:1.02; letter-spacing:-0.02em; margin:0">Experimental science</h2>
       <p style="font-size:clamp(18px, 1.8vw, 21px); font-weight:600; line-height:1.4; margin:0; color:var(--color-text); text-wrap:pretty">You enjoy asking “Why did that happen?” and designing experiments to find out.</p>
@@ -99,7 +101,7 @@
     <div style="padding:40px clamp(20px, 2.4vw, 32px); background:var(--color-surface)">
       <h2 style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; margin:0 0 24px">Applying to NC State</h2>
       <p style="font-size:18px; line-height:1.5; margin:0 0 20px; max-width:48ch; text-wrap:pretty">Admission runs through the Department of Electrical and Computer Engineering. Apply to the ECE graduate program and name Dr. Wei-Hsi Chen in your statement.</p>
-      <a href="https://www.ece.ncsu.edu/academics/grad/" style="font-size:16px; font-weight:700; color:var(--color-accent-700); text-decoration:none; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">NC State ECE graduate programs →</a>
+      <a href="https://www.ece.ncsu.edu/academics/grad/" style="font-size:16px; font-weight:700; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">NC State ECE graduate programs →</a>
     </div>
   </section>
 
@@ -119,7 +121,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:14px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Lab</div>
-      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:48px; width:auto; max-width:100%; mix-blend-mode:multiply; display:block; align-self:flex-start">
+      <img src="assets/forge-logo.png" alt="FORGE Lab" style="height:20px; width:auto; max-width:100%; display:block; align-self:flex-start">
       <div style="font-size:16px; line-height:1.55">Room 1410, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:14px">
@@ -133,7 +135,7 @@
     <div style="display:flex; flex-direction:column; gap:14px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Department</div>
       <a href="https://ece.ncsu.edu/" style="display:block; align-self:flex-start; text-decoration:none">
-        <img src="assets/ncsu-ece-logo.png" alt="NC State University, Electrical and Computer Engineering" style="height:48px; width:auto; max-width:100%; display:block">
+        <img src="assets/ncsu-ece-logo.png" alt="NC State University, Electrical and Computer Engineering" style="height:36px; width:auto; max-width:100%; display:block">
       </a>
       <div style="font-size:16px; line-height:1.55">890 Oval Drive<br>3114 Koch Hall<br>Raleigh, NC 27606</div>
     </div>

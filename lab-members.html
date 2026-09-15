@@ -11,11 +11,11 @@
 <meta property="og:title" content="For Lab Members — FORGE Lab at NC State">
 <meta property="og:description" content="Internal resources for members of the FORGE Robotics Lab at NC State University.">
 <meta property="og:url" content="https://forge-robotics.github.io/lab-members.html">
-<meta property="og:image" content="https://forge-robotics.github.io/assets/forge-logo.jpeg">
+<meta property="og:image" content="https://forge-robotics.github.io/assets/forge-logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="For Lab Members — FORGE Lab at NC State">
 <meta name="twitter:description" content="Internal resources for members of the FORGE Robotics Lab at NC State University.">
-<meta name="twitter:image" content="https://forge-robotics.github.io/assets/forge-logo.jpeg">
+<meta name="twitter:image" content="https://forge-robotics.github.io/assets/forge-logo.png">
 <script src="./support.js"></script>
 </head>
 <body>
@@ -34,8 +34,8 @@
   a:hover { color:var(--color-accent); }
   .grayscale { transition: filter 0.35s ease; }
   .grayscale:hover { filter: none; }
-  .btn-primary { background: #c94b39; color: var(--color-bg); }
-  .btn-primary:hover, .btn-primary:active { background: #c94b39; color: var(--color-text); }
+  .btn-primary { background: var(--color-accent); color: var(--color-bg); }
+  .btn-primary:hover, .btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
 </style>
 </helmet>
 
@@ -43,15 +43,15 @@
 
   <header class="nav" style="justify-content:space-between; gap:var(--space-8); flex-wrap:wrap; padding:var(--space-4) 0; border-bottom:2px solid var(--color-text); background:var(--color-bg); position:sticky; top:0; z-index:20">
     <a href="index.html" class="nav-brand" style="display:flex; align-items:center; text-decoration:none; flex:0 0 auto">
-      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:30px; width:auto; mix-blend-mode:multiply; display:block">
+      <img src="assets/forge-logo.png" alt="FORGE Lab" style="height:16px; width:auto; display:block">
     </a>
-    <nav style="display:flex; flex-wrap:wrap; gap:var(--space-6); align-items:center">
-      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">People</a>
-      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Research</a>
-      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Publications</a>
-      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">News</a>
-      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid transparent" style-hover="border-bottom:2px solid var(--color-accent); color:var(--color-accent-700)">Join Us</a>
-      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0; border-bottom:2px solid var(--color-accent)">For Lab Members</a>
+    <nav style="display:flex; flex-wrap:wrap; column-gap:var(--space-6); row-gap:var(--space-4); align-items:center">
+      <a href="people.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">People</a>
+      <a href="research.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Research</a>
+      <a href="publications.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Publications</a>
+      <a href="news.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">News</a>
+      <a href="join-us.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-text); text-decoration:none; padding:var(--space-1) 0" style-hover="color:var(--color-accent-700)">Join Us</a>
+      <a href="lab-members.html" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; color:var(--color-accent-700); text-decoration:none; padding:var(--space-1) 0">For Lab Members</a>
     </nav>
   </header>
 
@@ -74,7 +74,7 @@
               <sc-for list="{{ g.links }}" as="l" hint-placeholder-count="3">
                 <li style="padding:14px 0; border-top:1px solid var(--color-neutral-300); display:flex; flex-direction:column; gap:4px">
                   <sc-if value="{{ l.live }}" hint-placeholder-val="{{ false }}">
-                    <a href="{{ l.url }}" style="font-size:16px; font-weight:600; line-height:1.4; color:var(--color-accent-700); text-decoration:none; border-bottom:1px solid var(--color-accent-300); align-self:flex-start" style-hover="color:var(--color-accent)">{{ l.label }}</a>
+                    <a href="{{ l.url }}" style="font-size:16px; font-weight:600; line-height:1.4; color:var(--color-text); text-decoration:none; border-bottom:1px solid var(--color-accent-400); align-self:flex-start" style-hover="color:var(--color-accent)">{{ l.label }}</a>
                   </sc-if>
                   <sc-if value="{{ l.pending }}" hint-placeholder-val="{{ true }}">
                     <span style="font-size:16px; font-weight:600; line-height:1.4; color:var(--color-neutral-700)">{{ l.label }}</span>
@@ -99,7 +99,7 @@
     </div>
     <div style="display:flex; flex-direction:column; gap:14px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Lab</div>
-      <img src="assets/forge-logo.jpeg" alt="FORGE Lab" style="height:48px; width:auto; max-width:100%; mix-blend-mode:multiply; display:block; align-self:flex-start">
+      <img src="assets/forge-logo.png" alt="FORGE Lab" style="height:20px; width:auto; max-width:100%; display:block; align-self:flex-start">
       <div style="font-size:16px; line-height:1.55">Room 1410, Research Building IV<br>909 Capability Dr #2100<br>Raleigh, NC 27606</div>
     </div>
     <div style="display:flex; flex-direction:column; gap:14px">
@@ -113,7 +113,7 @@
     <div style="display:flex; flex-direction:column; gap:14px">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-neutral-700)">Department</div>
       <a href="https://ece.ncsu.edu/" style="display:block; align-self:flex-start; text-decoration:none">
-        <img src="assets/ncsu-ece-logo.png" alt="NC State University, Electrical and Computer Engineering" style="height:48px; width:auto; max-width:100%; display:block">
+        <img src="assets/ncsu-ece-logo.png" alt="NC State University, Electrical and Computer Engineering" style="height:36px; width:auto; max-width:100%; display:block">
       </a>
       <div style="font-size:16px; line-height:1.55">890 Oval Drive<br>3114 Koch Hall<br>Raleigh, NC 27606</div>
     </div>
