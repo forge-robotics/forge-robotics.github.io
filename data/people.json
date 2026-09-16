@@ -5,7 +5,7 @@
       "group": "phd",
       "name": "Student One",
       "role": "PhD Student",
-      "dept": "Electrical & Computer Engineering · expected 2031",
+      "dept": "Electrical and Computer Engineering · expected 2031",
       "focus": "Placeholder profile — one line on what the student works on.",
       "email": "",
       "tags": [
@@ -23,7 +23,7 @@
       "group": "phd",
       "name": "Student Two",
       "role": "PhD Student",
-      "dept": "Mechanical & Aerospace Engineering · expected 2030",
+      "dept": "Mechanical and Aerospace Engineering · expected 2030",
       "focus": "Placeholder profile — one line on what the student works on.",
       "email": "",
       "tags": [
@@ -37,7 +37,7 @@
       "group": "ms",
       "name": "Student Three",
       "role": "Master's Student",
-      "dept": "Electrical & Computer Engineering · expected 2028",
+      "dept": "Electrical and Computer Engineering · expected 2028",
       "focus": "Placeholder profile — one line on what the student works on.",
       "email": "",
       "tags": [
@@ -55,7 +55,7 @@
       "group": "undergrad",
       "name": "Student Four",
       "role": "Undergraduate Researcher",
-      "dept": "Electrical & Computer Engineering · expected 2029",
+      "dept": "Electrical and Computer Engineering · expected 2029",
       "focus": "Placeholder profile — one line on what the student works on.",
       "email": "",
       "tags": [
