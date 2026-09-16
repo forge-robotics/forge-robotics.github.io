@@ -36,6 +36,8 @@
   .btn-primary:hover, .btn-primary:active { background: var(--color-accent-700); color: var(--color-bg); }
   [data-role-grid] { display:grid; grid-template-columns:minmax(0, 1fr); }
   @media (min-width: 900px) { [data-role-grid] { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
+  [data-footer-grid] { grid-template-columns:minmax(0, 1fr); }
+  @media (min-width: 720px) { [data-footer-grid] { grid-template-columns:repeat(3, minmax(0, 1fr)); } }
   .grayscale { transition: filter 0.35s ease; }
   .grayscale:hover { filter: none; }
 </style>
@@ -75,28 +77,28 @@
 
   <section id="phd" style="margin-top:clamp(28px, 4vw, 64px); padding-top:clamp(28px, 3.4vw, 48px); border-top:2px solid var(--color-text); scroll-margin-top:96px">
     <div style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; color:var(--color-accent-700); margin-bottom:18px">PhD students</div>
-    <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px, 4vw, 52px); line-height:1; letter-spacing:-0.03em; margin:0 0 24px; max-width:24ch; text-wrap:pretty">Come build the lab with me</h2>
+    <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px, 4vw, 52px); line-height:1; letter-spacing:-0.03em; margin:0 0 24px; max-width:24ch; text-wrap:pretty">Come build the lab with us</h2>
     <div style="display:flex; flex-direction:column; gap:20px; max-width:64ch">
-      <p style="font-size:clamp(16px, 1.7vw, 19px); line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We are looking for PhD students who are curious, goal-driven, hands-on, and excited about solving open-ended problems. Research rarely works the first time, so I especially value people who enjoy figuring things out, are willing to cross disciplines and learn outside their existing expertise, and put effort into communicating and documenting their work.</p>
-      <p style="font-size:clamp(16px, 1.7vw, 19px); line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We welcome students from robotics, mechanical engineering, electrical engineering, computer science, physics, and other related backgrounds. Whatever your background, the questions we ask are answered by building, so we expect our students to be comfortable working with physical robots. I am currently excited to recruit along three broad directions:</p>
+      <p style="font-size:clamp(16px, 1.7vw, 19px); line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We are looking for PhD students who are curious, goal-driven, hands-on, and excited about solving open-ended problems. Research rarely works the first time, so we especially value people who enjoy figuring things out, are willing to cross disciplines and learn outside their existing expertise, and put effort into communicating and documenting their work.</p>
+      <p style="font-size:clamp(16px, 1.7vw, 19px); line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We welcome students from robotics, mechanical engineering, electrical engineering, computer science, physics, and other related backgrounds. Whatever your background, the questions we ask are answered by building, so we expect our students to be comfortable working with physical robots. we are currently excited to recruit along three broad directions:</p>
     </div>
   </section>
 
   <section data-role-grid="" style="margin-top:clamp(24px, 3vw, 40px)">
-    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
+    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 180ms ease, color 180ms ease, box-shadow 180ms ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent)">01</div>
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.8vw, 36px); line-height:1.02; letter-spacing:-0.02em; margin:0">Mechatronics</h2>
       <p style="font-size:clamp(18px, 1.8vw, 21px); font-weight:600; line-height:1.4; margin:0; color:var(--color-text); text-wrap:pretty">You enjoy building things from scratch and figuring out why they do—or don't—work.</p>
       <p style="font-size:17px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We develop dynamic robotic systems, so experience with mechanisms, motors and actuators (e.g., BLDC, DC, and high-torque servos), embedded systems and computers (e.g., Arduino, Teensy, Raspberry Pi), sensors, and rapid prototyping is valuable.</p>
-      <p style="font-size:17px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">Just as importantly, I am looking for people who can turn a one-off prototype into knowledge: documenting what they built, why they built it that way, and what they learned from it.</p>
+      <p style="font-size:17px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">Just as importantly, we are looking for people who can turn a one-off prototype into knowledge: documenting what they built, why they built it that way, and what they learned from it.</p>
     </div>
-    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
+    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 180ms ease, color 180ms ease, box-shadow 180ms ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent)">02</div>
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.8vw, 36px); line-height:1.02; letter-spacing:-0.02em; margin:0">Design abstractions</h2>
       <p style="font-size:clamp(18px, 1.8vw, 21px); font-weight:600; line-height:1.4; margin:0; color:var(--color-text); text-wrap:pretty">How can we describe robots in a way that computers can reason about and eventually generate them?</p>
       <p style="font-size:17px; line-height:1.5; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We are working toward parameterizing and systematizing the robot design process, developing representations that connect tasks, robot morphology, and behavior. Students in this direction may come from computer science, robotics, computational design, or related areas and should enjoy abstraction, software frameworks, algorithms, and thinking carefully about how complex physical systems can be represented computationally.</p>
     </div>
-    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 0.18s ease" style-hover="background:var(--color-accent-200)">
+    <div style="padding:var(--space-8); display:flex; flex-direction:column; gap:var(--space-4); background:var(--color-bg); transition:background-color 180ms ease, color 180ms ease, box-shadow 180ms ease" style-hover="background:var(--color-accent-200)">
       <div style="font-size:12px; font-weight:700; letter-spacing:0.16em; color:var(--color-accent)">03</div>
       <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(26px, 2.8vw, 36px); line-height:1.02; letter-spacing:-0.02em; margin:0">Experimental science</h2>
       <p style="font-size:clamp(18px, 1.8vw, 21px); font-weight:600; line-height:1.4; margin:0; color:var(--color-text); text-wrap:pretty">You enjoy asking “Why did that happen?” and designing experiments to find out.</p>
@@ -107,14 +109,14 @@
   <section style="margin-top:clamp(28px, 4vw, 64px); display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr))">
     <div style="padding:40px clamp(20px, 2.4vw, 32px)">
       <h2 style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; margin:0 0 24px">How to apply</h2>
-      <p style="font-size:18px; line-height:1.5; margin:0 0 20px; max-width:48ch; text-wrap:pretty">You do not need to fit perfectly into one of these categories. In fact, interdisciplinary students who cross these boundaries are especially welcome. I care more about your curiosity, your willingness to learn, and how you approach difficult problems than whether your current CV contains every skill listed above.</p>
-      <p style="font-size:18px; line-height:1.5; margin:0 0 24px; max-width:48ch; text-wrap:pretty">If these questions excite you and you are interested in joining FORGE for your PhD, please submit the following Google Form so that I can learn about your expertise and research interests in advance.</p>
+      <p style="font-size:18px; line-height:1.5; margin:0 0 20px; max-width:48ch; text-wrap:pretty">You do not need to fit perfectly into one of these categories. In fact, interdisciplinary students who cross these boundaries are especially welcome. We care more about your curiosity, your willingness to learn, and how you approach difficult problems than whether your current CV contains every skill listed above.</p>
+      <p style="font-size:18px; line-height:1.5; margin:0 0 24px; max-width:48ch; text-wrap:pretty">If these questions excite you and you are interested in joining FORGE for your PhD, please submit the following Google Form so that we can learn about your expertise and research interests in advance.</p>
       <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYr6TCGoUJOWAAcluF2k9qtj6geRP0cPwiaJxxHW3CxmBPvA/viewform" class="btn btn-primary" style="justify-content:flex-start; font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:var(--space-4) 26px; text-decoration:none">PhD interest form →</a>
     </div>
     <div style="padding:40px clamp(20px, 2.4vw, 32px); background:var(--color-surface)">
       <h2 style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; margin:0 0 24px">PhD admission</h2>
       <p style="font-size:18px; line-height:1.5; margin:0 0 20px; max-width:48ch; text-wrap:pretty">PhD admission runs through the Department of Electrical and Computer Engineering. Apply to the ECE graduate program and name Dr. Wei-Hsi Chen in your statement.</p>
-      <a href="https://www.ece.ncsu.edu/academics/grad/" style="font-size:16px; font-weight:700; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent)" style-hover="color:var(--color-accent)">NC State ECE graduate programs →</a>
+      <a href="https://www.ece.ncsu.edu/academics/grad/" style="font-size:16px; font-weight:700; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); transition:color 180ms ease, border-color 180ms ease" style-hover="color:var(--color-accent)">NC State ECE graduate programs →</a>
     </div>
   </section>
 
@@ -123,12 +125,24 @@
     <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px, 4vw, 52px); line-height:1; letter-spacing:-0.03em; margin:0 0 24px; max-width:22ch; text-wrap:pretty">Already on campus?</h2>
     <div style="display:flex; flex-direction:column; gap:20px; max-width:64ch">
       <p style="font-size:clamp(16px, 1.7vw, 19px); line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">We are always looking for motivated and curious students to join the lab and participate in research! Undergraduate and MS research here is project-based and scoped to fit alongside coursework, so new researchers usually begin with a small introductory project that lets us learn how we work together.</p>
-      <p style="font-size:clamp(16px, 1.7vw, 19px); line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">You are also welcome to bring a problem of your own — come talk to me and we will find something that interests us both. If you are interested in joining FORGE, please fill out our interest form:</p>
+      <p style="font-size:clamp(16px, 1.7vw, 19px); line-height:1.55; margin:0; color:var(--color-neutral-800); text-wrap:pretty">You are also welcome to bring a problem of your own — come talk to us and we will find something that interests us both.</p>
     </div>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSclSQC3IPIdPHeTHCf1QqWiewVXrNR08xMjc2IIY_u1KGcPAA/viewform" class="btn btn-primary" style="justify-content:flex-start; font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:var(--space-4) 26px; text-decoration:none; margin-top:28px">MS / UG interest form →</a>
   </section>
 
-  <footer style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 48px) clamp(20px, 2.4vw, 32px); background:var(--color-surface); display:grid; grid-template-columns:repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap:clamp(24px, 3vw, 48px)">
+  <section style="margin-top:clamp(28px, 4vw, 64px); display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr))">
+    <div style="padding:40px clamp(20px, 2.4vw, 32px)">
+      <h2 style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; margin:0 0 24px">How to apply</h2>
+      <p style="font-size:18px; line-height:1.5; margin:0 0 24px; max-width:48ch; text-wrap:pretty">If you are interested in joining FORGE as an MS or undergraduate researcher, fill out the interest form and tell us what you would like to work on.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSclSQC3IPIdPHeTHCf1QqWiewVXrNR08xMjc2IIY_u1KGcPAA/viewform" class="btn btn-primary" style="justify-content:flex-start; font-size:14px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase; padding:var(--space-4) 26px; text-decoration:none">MS / UG interest form →</a>
+    </div>
+    <div style="padding:40px clamp(20px, 2.4vw, 32px); background:var(--color-surface)">
+      <h2 style="font-size:13px; font-weight:700; letter-spacing:0.16em; text-transform:uppercase; margin:0 0 24px">Before you write</h2>
+      <p style="font-size:18px; line-height:1.5; margin:0 0 20px; max-width:48ch; text-wrap:pretty">Have a look at what the lab is working on. Naming a project or a question you would like to take on tells us far more than a list of courses.</p>
+      <a href="research.html" style="font-size:16px; font-weight:700; color:var(--color-accent-700); text-decoration:none; line-height:1.2; padding-bottom:4px; border-bottom:2px solid var(--color-accent); transition:color 180ms ease, border-color 180ms ease" style-hover="color:var(--color-accent)">Current research →</a>
+    </div>
+  </section>
+
+  <footer data-footer-grid="" style="margin-top:clamp(28px, 4vw, 64px); padding:clamp(32px, 4vw, 48px) clamp(20px, 2.4vw, 32px); background:var(--color-surface); display:grid; gap:clamp(24px, 3vw, 48px)">
     <div style="grid-column:1 / -1; display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:var(--space-6)">
       <div>
         <h2 style="font-family:var(--font-heading); font-weight:800; font-size:clamp(28px, 3.4vw, 44px); line-height:1; letter-spacing:-0.025em; margin:0 0 12px">Find us</h2>
