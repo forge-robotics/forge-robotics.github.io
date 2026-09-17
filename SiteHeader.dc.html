@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="_ds/modernist-51cb6bb2-d4e1-4e2c-a8d1-fc405a1cb599/styles.css">
 </helmet>
 <header class="nav" style="justify-content:space-between; gap:var(--space-8); flex-wrap:wrap; padding:var(--space-4) 0; border-bottom:2px solid var(--color-text); background:var(--color-bg); position:sticky; top:0; z-index:20">
-  <a href="index.html" class="nav-brand" style="display:flex; align-items:center; text-decoration:none; flex:0 0 auto">
+  <a href="{{ home }}" class="nav-brand" style="display:flex; align-items:center; text-decoration:none; flex:0 0 auto">
     <img src="assets/forge-logo.png" alt="FORGE Lab" style="height:16px; width:auto; display:block">
   </a>
   <nav style="display:flex; flex-wrap:wrap; column-gap:var(--space-6); row-gap:var(--space-4); align-items:center">
@@ -31,12 +31,26 @@ const NAV = [
   ['lab-members.html', 'For Lab Members']
 ];
 
+// In the editor the pages are Name.dc.html; on the deployed site they are flat .html.
+const DC_NAMES = {
+  'index.html': 'Home.dc.html', 'people.html': 'People.dc.html', 'research.html': 'Research.dc.html',
+  'publications.html': 'Publications.dc.html', 'news.html': 'News.dc.html',
+  'join-us.html': 'Join-Us.dc.html', 'lab-members.html': 'Lab-Members.dc.html'
+};
+
 class Component extends DCLogic {
+  resolve(href) {
+    let dc = false;
+    try { dc = /\.dc\.html$/.test(window.location.pathname); } catch (e) {}
+    return dc ? (DC_NAMES[href] || href) : href;
+  }
+
   renderVals() {
     const current = this.props.current || '';
     return {
+      home: this.resolve('index.html'),
       links: NAV.map(([href, label]) => ({
-        href,
+        href: this.resolve(href),
         label,
         color: href === current ? 'var(--color-accent-700)' : 'var(--color-text)'
       }))
