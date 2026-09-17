@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-51cb6bb2-d4e1-4e2c-a8d1-fc405a1cb599/styles.css">
+</helmet>
+<header class="nav" style="justify-content:space-between; gap:var(--space-8); flex-wrap:wrap; padding:var(--space-4) 0; border-bottom:2px solid var(--color-text); background:var(--color-bg); position:sticky; top:0; z-index:20">
+  <a href="index.html" class="nav-brand" style="display:flex; align-items:center; text-decoration:none; flex:0 0 auto">
+    <img src="assets/forge-logo.png" alt="FORGE Lab" style="height:16px; width:auto; display:block">
+  </a>
+  <nav style="display:flex; flex-wrap:wrap; column-gap:var(--space-6); row-gap:var(--space-4); align-items:center">
+    <sc-for list="{{ links }}" as="link" hint-placeholder-count="6">
+      <a href="{{ link.href }}" style="font-size:13px; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; padding:var(--space-1) 0; transition:color 180ms ease; color:{{ link.color }}" style-hover="color:var(--color-accent-700)">{{ link.label }}</a>
+    </sc-for>
+  </nav>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:80},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;&quot;,&quot;people.html&quot;,&quot;research.html&quot;,&quot;publications.html&quot;,&quot;news.html&quot;,&quot;join-us.html&quot;,&quot;lab-members.html&quot;],&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const NAV = [
+  ['people.html', 'People'],
+  ['research.html', 'Research'],
+  ['publications.html', 'Publications'],
+  ['news.html', 'News'],
+  ['join-us.html', 'Join Us'],
+  ['lab-members.html', 'For Lab Members']
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    const current = this.props.current || '';
+    return {
+      links: NAV.map(([href, label]) => ({
+        href,
+        label,
+        color: href === current ? 'var(--color-accent-700)' : 'var(--color-text)'
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
